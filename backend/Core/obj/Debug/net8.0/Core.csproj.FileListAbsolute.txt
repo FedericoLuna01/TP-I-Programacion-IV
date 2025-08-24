@@ -1,0 +1,11 @@
+C:\Workspace\tp-i-programacion\backend\core\bin\Debug\net8.0\Core.deps.json
+C:\Workspace\tp-i-programacion\backend\core\bin\Debug\net8.0\Core.dll
+C:\Workspace\tp-i-programacion\backend\core\bin\Debug\net8.0\Core.pdb
+C:\Workspace\tp-i-programacion\backend\core\obj\Debug\net8.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace\tp-i-programacion\backend\core\obj\Debug\net8.0\Core.AssemblyInfoInputs.cache
+C:\Workspace\tp-i-programacion\backend\core\obj\Debug\net8.0\Core.AssemblyInfo.cs
+C:\Workspace\tp-i-programacion\backend\core\obj\Debug\net8.0\Core.csproj.CoreCompileInputs.cache
+C:\Workspace\tp-i-programacion\backend\core\obj\Debug\net8.0\Core.dll
+C:\Workspace\tp-i-programacion\backend\core\obj\Debug\net8.0\refint\Core.dll
+C:\Workspace\tp-i-programacion\backend\core\obj\Debug\net8.0\Core.pdb
+C:\Workspace\tp-i-programacion\backend\core\obj\Debug\net8.0\ref\Core.dll
