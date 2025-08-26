@@ -32,3 +32,4 @@ C:\Workspace\tp-i-programacion\backend\Api\obj\Debug\net8.0\refint\Api.dll
 C:\Workspace\tp-i-programacion\backend\Api\obj\Debug\net8.0\Api.pdb
 C:\Workspace\tp-i-programacion\backend\Api\obj\Debug\net8.0\Api.genruntimeconfig.cache
 C:\Workspace\tp-i-programacion\backend\Api\obj\Debug\net8.0\ref\Api.dll
+C:\Workspace\tp-i-programacion\backend\api\obj\Debug\net8.0\Api.sourcelink.json
