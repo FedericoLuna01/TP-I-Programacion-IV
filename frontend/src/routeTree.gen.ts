@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ApiRouteImport } from './routes/api'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuiasIndexRouteImport } from './routes/guias/index'
+import { Route as CrearGuiaIndexRouteImport } from './routes/crear-guia/index'
+import { Route as GuiasGuideIdIndexRouteImport } from './routes/guias/$guideId/index'
 
 const ApiRoute = ApiRouteImport.update({
   id: '/api',
@@ -22,31 +25,64 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuiasIndexRoute = GuiasIndexRouteImport.update({
+  id: '/guias/',
+  path: '/guias/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrearGuiaIndexRoute = CrearGuiaIndexRouteImport.update({
+  id: '/crear-guia/',
+  path: '/crear-guia/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiasGuideIdIndexRoute = GuiasGuideIdIndexRouteImport.update({
+  id: '/guias/$guideId/',
+  path: '/guias/$guideId/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api': typeof ApiRoute
+  '/crear-guia': typeof CrearGuiaIndexRoute
+  '/guias': typeof GuiasIndexRoute
+  '/guias/$guideId': typeof GuiasGuideIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api': typeof ApiRoute
+  '/crear-guia': typeof CrearGuiaIndexRoute
+  '/guias': typeof GuiasIndexRoute
+  '/guias/$guideId': typeof GuiasGuideIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api': typeof ApiRoute
+  '/crear-guia/': typeof CrearGuiaIndexRoute
+  '/guias/': typeof GuiasIndexRoute
+  '/guias/$guideId/': typeof GuiasGuideIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api'
+  fullPaths: '/' | '/api' | '/crear-guia' | '/guias' | '/guias/$guideId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api'
-  id: '__root__' | '/' | '/api'
+  to: '/' | '/api' | '/crear-guia' | '/guias' | '/guias/$guideId'
+  id:
+    | '__root__'
+    | '/'
+    | '/api'
+    | '/crear-guia/'
+    | '/guias/'
+    | '/guias/$guideId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiRoute: typeof ApiRoute
+  CrearGuiaIndexRoute: typeof CrearGuiaIndexRoute
+  GuiasIndexRoute: typeof GuiasIndexRoute
+  GuiasGuideIdIndexRoute: typeof GuiasGuideIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +101,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guias/': {
+      id: '/guias/'
+      path: '/guias'
+      fullPath: '/guias'
+      preLoaderRoute: typeof GuiasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crear-guia/': {
+      id: '/crear-guia/'
+      path: '/crear-guia'
+      fullPath: '/crear-guia'
+      preLoaderRoute: typeof CrearGuiaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guias/$guideId/': {
+      id: '/guias/$guideId/'
+      path: '/guias/$guideId'
+      fullPath: '/guias/$guideId'
+      preLoaderRoute: typeof GuiasGuideIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiRoute: ApiRoute,
+  CrearGuiaIndexRoute: CrearGuiaIndexRoute,
+  GuiasIndexRoute: GuiasIndexRoute,
+  GuiasGuideIdIndexRoute: GuiasGuideIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
