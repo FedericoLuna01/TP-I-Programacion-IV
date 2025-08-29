@@ -9,6 +9,7 @@ import {
 import FeaturedGuides from "@/components/featured-guides";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { FeaturesSection } from "./-components/features";
 
 export const Route = createFileRoute("/")({
 	component: RouteComponent,
@@ -17,7 +18,7 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
 	return (
 		<>
-			<div className="min-h-[calc(100vh-4.05rem)] flex items-center justify-center relative">
+			<div className="min-h-screen flex items-center justify-center relative">
 				<div
 					className="inset-0 absolute -z-10 opacity-30 dark:opacity-45"
 					style={{
@@ -92,10 +93,9 @@ function RouteComponent() {
 					<MouseIcon className="size-8 animate-bounce" />
 				</a>
 			</div>
-
 			<FeaturedGuides />
-
-			<section className="mt-16 py-16 text-center bg-gradient-card rounded-2xl border border-border/50 container mx-auto shadow-sm">
+			<FeaturesSection />
+			<section className="py-16 text-center bg-gradient-card rounded-lg border border-border/50 container mx-auto shadow-sm">
 				<div className="max-w-2xl mx-auto space-y-6">
 					<h2 className="text-3xl font-bold">
 						¿Tienes una guía increíble que compartir?
