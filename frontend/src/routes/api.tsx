@@ -14,7 +14,7 @@ function RouteComponent() {
 
 	console.log(query.data);
 	return (
-		<div className="min-h-screen">
+		<div className="min-h-[calc(100vh-4.05rem)] flex flex-col items-center justify-center container mx-auto p-4">
 			<h1 className="text-4xl font-bold">Hello "/"!</h1>
 			<div>
 				{query.isLoading && <div>Cargando...</div>}
