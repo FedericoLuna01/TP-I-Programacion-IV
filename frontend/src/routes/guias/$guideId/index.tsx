@@ -66,7 +66,7 @@ function RouteComponent() {
 				<div className="lg:col-span-2 space-y-8">
 					{/* Guide Header */}
 					<div className="space-y-6">
-						<div className="relative overflow-hidden rounded-xl">
+						<div className="relative overflow-hidden rounded-md">
 							<img
 								src={guide.image}
 								alt={guide.title}
@@ -80,7 +80,7 @@ function RouteComponent() {
 								</Badge>
 							</div>
 							<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-								<p className="text-accent font-semibold text-lg">
+								<p className="text-accent-foreground font-semibold text-lg">
 									{guide.game}
 								</p>
 							</div>
@@ -209,7 +209,10 @@ function RouteComponent() {
 
 							<div className="flex gap-2">
 								<Button variant="outline" size="sm" className="flex-1" asChild>
-									<Link to={"/"}>
+									<Link
+										to={"/perfil/$userId"}
+										params={{ userId: guide.author.id }}
+									>
 										<UserIcon className="h-4 w-4 mr-2" />
 										Ver Perfil
 									</Link>

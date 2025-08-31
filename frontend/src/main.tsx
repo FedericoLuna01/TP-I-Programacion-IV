@@ -15,6 +15,8 @@ const router = createRouter({
 	context: {
 		queryClient,
 	},
+	// This ensures scroll is reset to top on every navigation
+	scrollRestorationBehavior: "smooth",
 });
 
 // Register the router instance for type safety

@@ -27,7 +27,7 @@ function RouteComponent() {
 						backgroundPosition: "center",
 					}}
 				/>
-				<div className="absolute inset-0 -z-10 bg-gradient-to-t from-white/50 dark:from-black" />
+				<div className="absolute inset-0 -z-10 bg-gradient-to-t from-background from-10%" />
 				<div className="flex items-center justify-center container flex-col space-y-10 z-10">
 					<div className="space-y-2">
 						<h1 className="text-7xl font-black">Domina cualquier juego</h1>

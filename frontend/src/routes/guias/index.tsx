@@ -13,6 +13,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
+	Pagination,
+	PaginationContent,
+	PaginationEllipsis,
+	PaginationItem,
+	PaginationLink,
+	PaginationNext,
+	PaginationPrevious,
+} from "@/components/ui/pagination";
+import {
 	Select,
 	SelectContent,
 	SelectItem,
@@ -180,12 +189,40 @@ function RouteComponent() {
 						</CardContent>
 					</Card>
 				</aside>
-				<div className="col-span-3 grid grid-cols-3 gap-8">
-					{Array.from({ length: 5 }).map((_, i) =>
-						mockGuides.map((guide) => (
-							<GuideCard key={`${i}-${guide.id}`} guide={guide} />
-						)),
-					)}
+				<div className="col-span-3">
+					<div className="grid grid-cols-3 gap-8">
+						{Array.from({ length: 5 }).map((_, i) =>
+							mockGuides.map((guide) => (
+								<GuideCard key={`${i}-${guide.id}`} guide={guide} />
+							)),
+						)}
+					</div>
+					<div className="mt-8">
+						<Pagination>
+							<PaginationContent>
+								<PaginationItem>
+									<PaginationPrevious href="#" />
+								</PaginationItem>
+								<PaginationItem>
+									<PaginationLink href="#">1</PaginationLink>
+								</PaginationItem>
+								<PaginationItem>
+									<PaginationLink href="#" isActive>
+										2
+									</PaginationLink>
+								</PaginationItem>
+								<PaginationItem>
+									<PaginationLink href="#">3</PaginationLink>
+								</PaginationItem>
+								<PaginationItem>
+									<PaginationEllipsis />
+								</PaginationItem>
+								<PaginationItem>
+									<PaginationNext href="#" />
+								</PaginationItem>
+							</PaginationContent>
+						</Pagination>
+					</div>
 				</div>
 			</div>
 		</section>
