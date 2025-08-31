@@ -95,9 +95,9 @@ function RouteComponent() {
 			<div className="container mx-auto min-h-screen">
 				<div className="flex w-full justify-between">
 					<Heading className="w-full">
-						<HeadingTitle>Todas las guías</HeadingTitle>
+						<HeadingTitle>Crear guía</HeadingTitle>
 						<HeadingDescription>
-							Explora nuestra colección de guías y tutoriales.
+							Crea y publica tu propia guía de juego.
 						</HeadingDescription>
 					</Heading>
 					<div className="flex gap-2">

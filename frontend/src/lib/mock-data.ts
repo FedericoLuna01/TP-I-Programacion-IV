@@ -27,6 +27,7 @@ export interface User {
 	totalRating: number;
 	joinedAt: string;
 	guides: string[];
+	followers: number;
 }
 
 export interface Comment {
@@ -49,6 +50,7 @@ const mockUsers: User[] = [
 		totalRating: 4.8,
 		joinedAt: "2023-01-15T10:00:00Z",
 		guides: ["guide-1", "guide-3"],
+		followers: 1200,
 	},
 	{
 		id: "user-2",
@@ -60,6 +62,7 @@ const mockUsers: User[] = [
 		totalRating: 4.5,
 		joinedAt: "2022-05-20T12:30:00Z",
 		guides: ["guide-2"],
+		followers: 300,
 	},
 ];
 
@@ -155,4 +158,12 @@ export const mockGuides: Guide[] = [
 
 export const getGuideById = (id: string): Guide | undefined => {
 	return mockGuides.find((guide) => guide.id === id);
+};
+
+export const getUserById = (id: string): User | undefined => {
+	return mockUsers.find((user) => user.id === id);
+};
+
+export const getGuidesByUserId = (userId: string): Guide[] => {
+	return mockGuides.filter((guide) => guide.authorId === userId);
 };

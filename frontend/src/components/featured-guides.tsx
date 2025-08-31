@@ -12,7 +12,7 @@ const FeaturedGuides = () => {
 					<FlameIcon className="text-violet-800" size={50} />
 					<h1 className="text-5xl leading-tight">Guías destacadas</h1>
 				</div>
-				<Button variant="outline">
+				<Button asChild variant="outline">
 					<Link to="/guias">Ver todas</Link>
 				</Button>
 			</div>

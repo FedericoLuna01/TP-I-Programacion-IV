@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ApiRouteImport } from './routes/api'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PerfilIndexRouteImport } from './routes/perfil/index'
 import { Route as GuiasIndexRouteImport } from './routes/guias/index'
 import { Route as CrearGuiaIndexRouteImport } from './routes/crear-guia/index'
+import { Route as PerfilUserIdIndexRouteImport } from './routes/perfil/$userId/index'
 import { Route as GuiasGuideIdIndexRouteImport } from './routes/guias/$guideId/index'
 
 const ApiRoute = ApiRouteImport.update({
@@ -25,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PerfilIndexRoute = PerfilIndexRouteImport.update({
+  id: '/perfil/',
+  path: '/perfil/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuiasIndexRoute = GuiasIndexRouteImport.update({
   id: '/guias/',
   path: '/guias/',
@@ -33,6 +40,11 @@ const GuiasIndexRoute = GuiasIndexRouteImport.update({
 const CrearGuiaIndexRoute = CrearGuiaIndexRouteImport.update({
   id: '/crear-guia/',
   path: '/crear-guia/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilUserIdIndexRoute = PerfilUserIdIndexRouteImport.update({
+  id: '/perfil/$userId/',
+  path: '/perfil/$userId/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuiasGuideIdIndexRoute = GuiasGuideIdIndexRouteImport.update({
@@ -46,14 +58,18 @@ export interface FileRoutesByFullPath {
   '/api': typeof ApiRoute
   '/crear-guia': typeof CrearGuiaIndexRoute
   '/guias': typeof GuiasIndexRoute
+  '/perfil': typeof PerfilIndexRoute
   '/guias/$guideId': typeof GuiasGuideIdIndexRoute
+  '/perfil/$userId': typeof PerfilUserIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api': typeof ApiRoute
   '/crear-guia': typeof CrearGuiaIndexRoute
   '/guias': typeof GuiasIndexRoute
+  '/perfil': typeof PerfilIndexRoute
   '/guias/$guideId': typeof GuiasGuideIdIndexRoute
+  '/perfil/$userId': typeof PerfilUserIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,20 +77,38 @@ export interface FileRoutesById {
   '/api': typeof ApiRoute
   '/crear-guia/': typeof CrearGuiaIndexRoute
   '/guias/': typeof GuiasIndexRoute
+  '/perfil/': typeof PerfilIndexRoute
   '/guias/$guideId/': typeof GuiasGuideIdIndexRoute
+  '/perfil/$userId/': typeof PerfilUserIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api' | '/crear-guia' | '/guias' | '/guias/$guideId'
+  fullPaths:
+    | '/'
+    | '/api'
+    | '/crear-guia'
+    | '/guias'
+    | '/perfil'
+    | '/guias/$guideId'
+    | '/perfil/$userId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api' | '/crear-guia' | '/guias' | '/guias/$guideId'
+  to:
+    | '/'
+    | '/api'
+    | '/crear-guia'
+    | '/guias'
+    | '/perfil'
+    | '/guias/$guideId'
+    | '/perfil/$userId'
   id:
     | '__root__'
     | '/'
     | '/api'
     | '/crear-guia/'
     | '/guias/'
+    | '/perfil/'
     | '/guias/$guideId/'
+    | '/perfil/$userId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -82,7 +116,9 @@ export interface RootRouteChildren {
   ApiRoute: typeof ApiRoute
   CrearGuiaIndexRoute: typeof CrearGuiaIndexRoute
   GuiasIndexRoute: typeof GuiasIndexRoute
+  PerfilIndexRoute: typeof PerfilIndexRoute
   GuiasGuideIdIndexRoute: typeof GuiasGuideIdIndexRoute
+  PerfilUserIdIndexRoute: typeof PerfilUserIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -101,6 +137,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/perfil/': {
+      id: '/perfil/'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guias/': {
       id: '/guias/'
       path: '/guias'
@@ -113,6 +156,13 @@ declare module '@tanstack/react-router' {
       path: '/crear-guia'
       fullPath: '/crear-guia'
       preLoaderRoute: typeof CrearGuiaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil/$userId/': {
+      id: '/perfil/$userId/'
+      path: '/perfil/$userId'
+      fullPath: '/perfil/$userId'
+      preLoaderRoute: typeof PerfilUserIdIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guias/$guideId/': {
@@ -130,7 +180,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApiRoute: ApiRoute,
   CrearGuiaIndexRoute: CrearGuiaIndexRoute,
   GuiasIndexRoute: GuiasIndexRoute,
+  PerfilIndexRoute: PerfilIndexRoute,
   GuiasGuideIdIndexRoute: GuiasGuideIdIndexRoute,
+  PerfilUserIdIndexRoute: PerfilUserIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
