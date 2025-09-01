@@ -67,44 +67,44 @@ export default function Footer() {
 				<nav className="flex w-full flex-col gap-9 text-center md:w-auto md:flex-row md:justify-end md:text-left">
 					<div>
 						<div className="mb-3 text-xs font-semibold tracking-widest text-primary uppercase">
-							Product
+							Producto
 						</div>
 						<ul className="space-y-2">
 							<li>
 								<a href="#" className="text-foreground/70">
-									Features
+									Características
 								</a>
 							</li>
 							<li>
 								<a href="#" className="text-foreground/70">
-									Pricing
+									Precios
 								</a>
 							</li>
 							<li>
 								<a href="#" className="text-foreground/70">
-									Integrations
+									Integraciones
 								</a>
 							</li>
 							<li>
 								<a href="#" className="text-foreground/70">
-									Updates
+									Actualizaciones
 								</a>
 							</li>
 						</ul>
 					</div>
 					<div>
 						<div className="mb-3 text-xs font-semibold tracking-widest text-primary uppercase">
-							Company
+							Compañía
 						</div>
 						<ul className="space-y-2">
 							<li>
 								<a href="#" className="text-foreground/70">
-									About
+									Acerca de
 								</a>
 							</li>
 							<li>
 								<a href="#" className="text-foreground/70">
-									Careers
+									Empleos
 								</a>
 							</li>
 							<li>
@@ -114,34 +114,34 @@ export default function Footer() {
 							</li>
 							<li>
 								<a href="#" className="text-foreground/70">
-									Contact
+									Contacto
 								</a>
 							</li>
 						</ul>
 					</div>
 					<div>
 						<div className="mb-3 text-xs font-semibold tracking-widest text-primary uppercase">
-							Resources
+							Recursos
 						</div>
 						<ul className="space-y-2">
 							<li>
 								<a href="#" className="text-foreground/70">
-									Docs
+									Documentación
 								</a>
 							</li>
 							<li>
 								<a href="#" className="text-foreground/70">
-									Community
+									Comunidad
 								</a>
 							</li>
 							<li>
 								<a href="#" className="text-foreground/70">
-									Support
+									Soporte
 								</a>
 							</li>
 							<li>
 								<a href="#" className="text-foreground/70">
-									Security
+									Seguridad
 								</a>
 							</li>
 						</ul>

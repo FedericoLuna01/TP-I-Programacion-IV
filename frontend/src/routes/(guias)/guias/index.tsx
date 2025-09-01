@@ -31,7 +31,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { mockGuides } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/guias/")({
+export const Route = createFileRoute("/(guias)/guias/")({
 	component: RouteComponent,
 });
 
@@ -42,12 +42,12 @@ function RouteComponent() {
 	const handleSortChange = (value: string) => {
 		setSortBy(value);
 		// Aquí puedes implementar la lógica de ordenamiento
-	};
+	}
 
 	const clearFilters = () => {
 		setActiveFiltersCount(0);
 		// Aquí puedes implementar la lógica para limpiar los filtros
-	};
+	}
 
 	return (
 		<section className="min-h-[60vh] container mx-auto py-24">
@@ -139,14 +139,14 @@ function RouteComponent() {
 									{[0, 3, 4, 4.5].map((rating) => (
 										<div key={rating} className="flex items-center space-x-2">
 											<Checkbox
-												id={`rating-${rating}`}
+												id={"rating-${rating}"}
 												// checked={minRating === rating}
 												// onCheckedChange={() =>
 												// 	setMinRating(minRating === rating ? 0 : rating)
 												// }
 											/>
 											<label
-												htmlFor={`rating-${rating}`}
+												htmlFor={"rating-${rating}"}
 												className="flex items-center gap-1 text-sm"
 											>
 												{rating === 0 ? (
@@ -175,7 +175,7 @@ function RouteComponent() {
 									{/* {uniqueTags.map((tag) => (
 										<div key={tag} className="flex items-center space-x-2">
 											<Checkbox
-												id={`tag-${tag}`}
+												id={"tag-${tag}"}
 												checked={selectedTags.includes(tag)}
 												onCheckedChange={() => handleTagToggle(tag)}
 											/>
@@ -226,5 +226,5 @@ function RouteComponent() {
 				</div>
 			</div>
 		</section>
-	);
+	)
 }

@@ -23,7 +23,7 @@ import { Separator } from "@/components/ui/separator";
 import { getGuideById } from "@/lib/mock-data";
 import CommentSection from "./-components/comment-section";
 
-export const Route = createFileRoute("/guias/$guideId/")({
+export const Route = createFileRoute("/(guias)/guias/$guideId/")({
 	component: RouteComponent,
 });
 
@@ -37,24 +37,24 @@ function RouteComponent() {
 			<div>
 				<p>Guía no encontrada</p>
 			</div>
-		);
+		)
 	}
 
 	const handleAddComment = (content: string, rating?: number) => {
 		toast.success("Comentario añadido correctamente");
 		// Aquí iría la lógica para agregar el comentario
-	};
+	}
 
 	const handleToggleFavorite = () => {
 		toast.success(
 			guide.isFavorite ? "Eliminado de favoritos" : "Añadido a favoritos",
-		);
-	};
+		)
+	}
 
 	const handleShare = () => {
 		navigator.clipboard.writeText(window.location.href);
 		toast.success("Enlace copiado al portapapeles");
-	};
+	}
 
 	return (
 		<section className="container mx-auto pt-20">
@@ -271,5 +271,5 @@ function RouteComponent() {
 				</div>
 			</div>
 		</section>
-	);
+	)
 }

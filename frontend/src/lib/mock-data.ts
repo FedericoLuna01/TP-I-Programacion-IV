@@ -28,6 +28,7 @@ export interface User {
 	joinedAt: string;
 	guides: string[];
 	followers: number;
+	banner: string;
 }
 
 export interface Comment {
@@ -38,6 +39,16 @@ export interface Comment {
 	likes: number;
 	createdAt: Date;
 }
+
+export const gradients = [
+	"bg-gradient-to-r from-primary-500 to-rose-500",
+	"bg-gradient-to-r from-blue-500 to-teal-500",
+	"bg-gradient-to-r from-green-500 to-lime-500",
+	"bg-gradient-to-r from-yellow-500 to-orange-500",
+	"bg-gradient-to-r from-red-500 to-pink-500",
+	"bg-gradient-to-r from-purple-500 to-indigo-500",
+	"bg-gradient-to-r from-teal-500 to-cyan-500",
+];
 
 const mockUsers: User[] = [
 	{
@@ -51,6 +62,7 @@ const mockUsers: User[] = [
 		joinedAt: "2023-01-15T10:00:00Z",
 		guides: ["guide-1", "guide-3"],
 		followers: 1200,
+		banner: gradients[0],
 	},
 	{
 		id: "user-2",
@@ -63,6 +75,7 @@ const mockUsers: User[] = [
 		joinedAt: "2022-05-20T12:30:00Z",
 		guides: ["guide-2"],
 		followers: 300,
+		banner: gradients[1],
 	},
 ];
 
