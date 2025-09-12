@@ -7,6 +7,10 @@ namespace Domain.Entities
 {
     public class Admin : BaseUser
     {
-        
+
+        private Admin()
+        {
+
+        }
     }
 }

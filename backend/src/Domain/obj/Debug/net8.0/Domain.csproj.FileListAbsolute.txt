@@ -10,3 +10,15 @@ c:\Workspace\tp-i-programacion\backend\src\Domain\obj\Debug\net8.0\Domain.dll
 c:\Workspace\tp-i-programacion\backend\src\Domain\obj\Debug\net8.0\refint\Domain.dll
 c:\Workspace\tp-i-programacion\backend\src\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Workspace\tp-i-programacion\backend\src\Domain\obj\Debug\net8.0\ref\Domain.dll
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\bin\Debug\net8.0\Domain.deps.json
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\bin\Debug\net8.0\Domain.dll
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\bin\Debug\net8.0\Domain.pdb
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\Domain.dll
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\refint\Domain.dll
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\Domain.pdb
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Domain\obj\Debug\net8.0\ref\Domain.dll

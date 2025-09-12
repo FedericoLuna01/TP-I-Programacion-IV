@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,6 +12,16 @@ namespace Domain.Entities
         public string CommentText { get; set; } = string.Empty;
 
         public DateTime CreatedAt { get; set; }
-        
+
+        // Relations  
+        public int GuideId { get; set; }
+        public Guide? Guide { get; set; }
+        public int UserId { get; set; }
+        public User? User { get; set; }
+
+        private Comment()
+        {
+
+        }
     }
 }

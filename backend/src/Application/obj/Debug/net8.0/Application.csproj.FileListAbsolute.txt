@@ -10,3 +10,15 @@ c:\Workspace\tp-i-programacion\backend\src\Application\obj\Debug\net8.0\Applicat
 c:\Workspace\tp-i-programacion\backend\src\Application\obj\Debug\net8.0\refint\Application.dll
 c:\Workspace\tp-i-programacion\backend\src\Application\obj\Debug\net8.0\Application.pdb
 c:\Workspace\tp-i-programacion\backend\src\Application\obj\Debug\net8.0\ref\Application.dll
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\bin\Debug\net8.0\Application.deps.json
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\bin\Debug\net8.0\Application.dll
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\bin\Debug\net8.0\Application.pdb
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\Application.sourcelink.json
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\Application.dll
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\refint\Application.dll
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\Application.pdb
+F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Application\obj\Debug\net8.0\ref\Application.dll
