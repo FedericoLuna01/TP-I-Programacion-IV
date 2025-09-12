@@ -1,36 +1,42 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Api\\Api.csproj": {}
+    "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Api\\Api.csproj": {}
   },
   "projects": {
-    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Api\\Api.csproj": {
+    "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Api\\Api.csproj",
+        "projectUniqueName": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Api\\obj\\",
+        "projectPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "F:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {
-                "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj"
+              "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Application\\Application.csproj": {
+                "projectPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Application\\Application.csproj"
               },
-              "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj"
+              "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -44,7 +50,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -74,26 +81,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {
+    "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj",
+        "projectUniqueName": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\obj\\",
+        "projectPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "F:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -111,7 +124,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -132,26 +146,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
+    "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\obj\\",
+        "projectPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "F:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -169,7 +189,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -190,37 +211,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
+    "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\obj\\",
+        "projectPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "F:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {
-                "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj"
+              "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Application\\Application.csproj": {
+                "projectPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Application\\Application.csproj"
               },
-              "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj"
+              "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Domain\\Domain.csproj": {
+                "projectPath": "F:\\Workspace\\Guideon\\TP-I-Programacion-IV\\backend\\src\\Domain\\Domain.csproj"
               }
             }
           }
@@ -234,7 +261,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -255,7 +283,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
