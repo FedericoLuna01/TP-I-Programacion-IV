@@ -17,5 +17,11 @@ namespace Domain.Entities
         public string Image { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public List<string> Tags { get; set; } = new List<string>();
+
+        // Relations
+        public int AuthorId { get; set; }
+        public User Author { get; set; } = new User();
+        public List<Comment> Comments { get; set; } = new List<Comment>();
+        public List<Score> Scores { get; set; } = new List<Score>();
     }
 }
