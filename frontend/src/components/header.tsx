@@ -5,7 +5,7 @@ import { ModeToggle } from "./mode-toggle";
 import Logo from "./ui/logo";
 
 const Header = () => {
-	const IS_LOGGED = true;
+	const IS_LOGGED = false;
 
 	return (
 		<header className="fixed z-50 w-full bg-background/70 backdrop-blur-xl border-b">
@@ -31,10 +31,10 @@ const Header = () => {
 						) : (
 							<>
 								<Button asChild variant="outline">
-									<Link to="/">Iniciar sesión</Link>
+									<Link to="/iniciar-sesion">Iniciar sesión</Link>
 								</Button>
 								<Button asChild>
-									<Link to="/">Registrarse</Link>
+									<Link to="/registrarse">Registrarse</Link>
 								</Button>
 							</>
 						)}

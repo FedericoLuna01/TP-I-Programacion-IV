@@ -36,3 +36,5 @@ F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Infrastructure\obj\Debug\n
 F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 F:\Workspace\Guideon\TP-I-Programacion-IV\backend\src\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Workspace\tp-i-programacion\backend\src\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
+C:\Workspace\tp-i-programacion\backend\src\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache

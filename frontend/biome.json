@@ -21,6 +21,10 @@
 			},
 			"correctness": {
 				"useUniqueElementIds": "off"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off",
+				"useValidAnchor": "off"
 			}
 		}
 	},

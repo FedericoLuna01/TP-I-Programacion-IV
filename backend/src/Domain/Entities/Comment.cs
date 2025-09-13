@@ -18,10 +18,5 @@ namespace Domain.Entities
         public Guide? Guide { get; set; }
         public int UserId { get; set; }
         public User? User { get; set; }
-
-        private Comment()
-        {
-
-        }
     }
 }

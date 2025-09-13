@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProfilePage } from "@/components/profile-page";
 import { getUserById } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/perfil/")({
+export const Route = createFileRoute("/_appLayout/perfil/")({
 	component: RouteComponent,
 });
 
@@ -15,7 +15,7 @@ function RouteComponent() {
 			<div>
 				<h1>Usuario no encontrado</h1>
 			</div>
-		);
+		)
 	}
 
 	return <ProfilePage user={user} isOwner={true} />;
