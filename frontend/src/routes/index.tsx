@@ -7,6 +7,8 @@ import {
 	UsersIcon,
 } from "lucide-react";
 import FeaturedGuides from "@/components/featured-guides";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { FeaturesSection } from "./-components/features";
@@ -18,6 +20,7 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
 	return (
 		<>
+			<Header />
 			<div className="min-h-screen flex items-center justify-center relative">
 				<div
 					className="inset-0 absolute -z-10 opacity-30 dark:opacity-45"
@@ -114,6 +117,7 @@ function RouteComponent() {
 					</div>
 				</div>
 			</section>
+			<Footer />
 		</>
 	);
 }

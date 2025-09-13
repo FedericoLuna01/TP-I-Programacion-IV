@@ -31,7 +31,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { mockGuides } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/(guias)/guias/")({
+export const Route = createFileRoute("/_appLayout/(guias)/guias/")({
 	component: RouteComponent,
 });
 

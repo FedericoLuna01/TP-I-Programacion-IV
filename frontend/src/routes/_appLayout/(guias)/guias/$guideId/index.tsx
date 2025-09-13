@@ -23,7 +23,7 @@ import { Separator } from "@/components/ui/separator";
 import { getGuideById } from "@/lib/mock-data";
 import CommentSection from "./-components/comment-section";
 
-export const Route = createFileRoute("/(guias)/guias/$guideId/")({
+export const Route = createFileRoute("/_appLayout/(guias)/guias/$guideId/")({
 	component: RouteComponent,
 });
 

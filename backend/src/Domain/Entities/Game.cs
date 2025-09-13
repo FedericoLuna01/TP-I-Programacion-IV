@@ -7,7 +7,7 @@ namespace Domain.Entities
 {
     public class Game
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Category { get; set; } = string.Empty;
@@ -16,9 +16,5 @@ namespace Domain.Entities
         // Relations
         public int UserId { get; set; }
         public User User { get; set; } = new User();
-        private Game()
-        {
-
-        }
     }
 }

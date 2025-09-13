@@ -23,7 +23,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { getUserById, gradients } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/editar-perfil/")({
+export const Route = createFileRoute("/_appLayout/editar-perfil/")({
 	component: RouteComponent,
 });
 
@@ -74,12 +74,12 @@ function RouteComponent() {
 		// Simular subida de imagen
 		toast.success("Avatar subido correctamente");
 		setValue("avatar", "https://i.pravatar.cc/150?u=" + Date.now());
-	};
+	}
 
 	const handleBannerSelect = (gradient: string) => {
 		setValue("banner", gradient);
 		toast.success("Banner actualizado");
-	};
+	}
 
 	return (
 		<section className="pt-20">
@@ -244,5 +244,5 @@ function RouteComponent() {
 				</div>
 			</div>
 		</section>
-	);
+	)
 }

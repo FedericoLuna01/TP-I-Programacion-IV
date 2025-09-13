@@ -10,18 +10,30 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ApiRouteImport } from './routes/api'
+import { Route as AuthLayoutRouteImport } from './routes/_authLayout'
+import { Route as AppLayoutRouteImport } from './routes/_appLayout'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PerfilIndexRouteImport } from './routes/perfil/index'
-import { Route as EditarPerfilIndexRouteImport } from './routes/editar-perfil/index'
-import { Route as PerfilUserIdIndexRouteImport } from './routes/perfil/$userId/index'
-import { Route as guiasGuiasIndexRouteImport } from './routes/(guias)/guias/index'
-import { Route as guiasCrearGuiaIndexRouteImport } from './routes/(guias)/crear-guia/index'
-import { Route as guiasGuiasGuideIdIndexRouteImport } from './routes/(guias)/guias/$guideId/index'
-import { Route as guiasEditarGuiaGuideIdIndexRouteImport } from './routes/(guias)/editar-guia/$guideId/index'
+import { Route as AuthLayoutRegistrarseRouteImport } from './routes/_authLayout/registrarse'
+import { Route as AuthLayoutIniciarSesionRouteImport } from './routes/_authLayout/iniciar-sesion'
+import { Route as AppLayoutPerfilIndexRouteImport } from './routes/_appLayout/perfil/index'
+import { Route as AppLayoutEditarPerfilIndexRouteImport } from './routes/_appLayout/editar-perfil/index'
+import { Route as AppLayoutPerfilUserIdIndexRouteImport } from './routes/_appLayout/perfil/$userId/index'
+import { Route as AppLayoutguiasGuiasIndexRouteImport } from './routes/_appLayout/(guias)/guias/index'
+import { Route as AppLayoutguiasCrearGuiaIndexRouteImport } from './routes/_appLayout/(guias)/crear-guia/index'
+import { Route as AppLayoutguiasGuiasGuideIdIndexRouteImport } from './routes/_appLayout/(guias)/guias/$guideId/index'
+import { Route as AppLayoutguiasEditarGuiaGuideIdIndexRouteImport } from './routes/_appLayout/(guias)/editar-guia/$guideId/index'
 
 const ApiRoute = ApiRouteImport.update({
   id: '/api',
   path: '/api',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthLayoutRoute = AuthLayoutRouteImport.update({
+  id: '/_authLayout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppLayoutRoute = AppLayoutRouteImport.update({
+  id: '/_appLayout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -29,82 +41,107 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PerfilIndexRoute = PerfilIndexRouteImport.update({
+const AuthLayoutRegistrarseRoute = AuthLayoutRegistrarseRouteImport.update({
+  id: '/registrarse',
+  path: '/registrarse',
+  getParentRoute: () => AuthLayoutRoute,
+} as any)
+const AuthLayoutIniciarSesionRoute = AuthLayoutIniciarSesionRouteImport.update({
+  id: '/iniciar-sesion',
+  path: '/iniciar-sesion',
+  getParentRoute: () => AuthLayoutRoute,
+} as any)
+const AppLayoutPerfilIndexRoute = AppLayoutPerfilIndexRouteImport.update({
   id: '/perfil/',
   path: '/perfil/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppLayoutRoute,
 } as any)
-const EditarPerfilIndexRoute = EditarPerfilIndexRouteImport.update({
-  id: '/editar-perfil/',
-  path: '/editar-perfil/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PerfilUserIdIndexRoute = PerfilUserIdIndexRouteImport.update({
-  id: '/perfil/$userId/',
-  path: '/perfil/$userId/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const guiasGuiasIndexRoute = guiasGuiasIndexRouteImport.update({
-  id: '/(guias)/guias/',
-  path: '/guias/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const guiasCrearGuiaIndexRoute = guiasCrearGuiaIndexRouteImport.update({
-  id: '/(guias)/crear-guia/',
-  path: '/crear-guia/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const guiasGuiasGuideIdIndexRoute = guiasGuiasGuideIdIndexRouteImport.update({
-  id: '/(guias)/guias/$guideId/',
-  path: '/guias/$guideId/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const guiasEditarGuiaGuideIdIndexRoute =
-  guiasEditarGuiaGuideIdIndexRouteImport.update({
+const AppLayoutEditarPerfilIndexRoute =
+  AppLayoutEditarPerfilIndexRouteImport.update({
+    id: '/editar-perfil/',
+    path: '/editar-perfil/',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppLayoutPerfilUserIdIndexRoute =
+  AppLayoutPerfilUserIdIndexRouteImport.update({
+    id: '/perfil/$userId/',
+    path: '/perfil/$userId/',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppLayoutguiasGuiasIndexRoute =
+  AppLayoutguiasGuiasIndexRouteImport.update({
+    id: '/(guias)/guias/',
+    path: '/guias/',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppLayoutguiasCrearGuiaIndexRoute =
+  AppLayoutguiasCrearGuiaIndexRouteImport.update({
+    id: '/(guias)/crear-guia/',
+    path: '/crear-guia/',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppLayoutguiasGuiasGuideIdIndexRoute =
+  AppLayoutguiasGuiasGuideIdIndexRouteImport.update({
+    id: '/(guias)/guias/$guideId/',
+    path: '/guias/$guideId/',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppLayoutguiasEditarGuiaGuideIdIndexRoute =
+  AppLayoutguiasEditarGuiaGuideIdIndexRouteImport.update({
     id: '/(guias)/editar-guia/$guideId/',
     path: '/editar-guia/$guideId/',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AppLayoutRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api': typeof ApiRoute
-  '/editar-perfil': typeof EditarPerfilIndexRoute
-  '/perfil': typeof PerfilIndexRoute
-  '/crear-guia': typeof guiasCrearGuiaIndexRoute
-  '/guias': typeof guiasGuiasIndexRoute
-  '/perfil/$userId': typeof PerfilUserIdIndexRoute
-  '/editar-guia/$guideId': typeof guiasEditarGuiaGuideIdIndexRoute
-  '/guias/$guideId': typeof guiasGuiasGuideIdIndexRoute
+  '/iniciar-sesion': typeof AuthLayoutIniciarSesionRoute
+  '/registrarse': typeof AuthLayoutRegistrarseRoute
+  '/editar-perfil': typeof AppLayoutEditarPerfilIndexRoute
+  '/perfil': typeof AppLayoutPerfilIndexRoute
+  '/crear-guia': typeof AppLayoutguiasCrearGuiaIndexRoute
+  '/guias': typeof AppLayoutguiasGuiasIndexRoute
+  '/perfil/$userId': typeof AppLayoutPerfilUserIdIndexRoute
+  '/editar-guia/$guideId': typeof AppLayoutguiasEditarGuiaGuideIdIndexRoute
+  '/guias/$guideId': typeof AppLayoutguiasGuiasGuideIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api': typeof ApiRoute
-  '/editar-perfil': typeof EditarPerfilIndexRoute
-  '/perfil': typeof PerfilIndexRoute
-  '/crear-guia': typeof guiasCrearGuiaIndexRoute
-  '/guias': typeof guiasGuiasIndexRoute
-  '/perfil/$userId': typeof PerfilUserIdIndexRoute
-  '/editar-guia/$guideId': typeof guiasEditarGuiaGuideIdIndexRoute
-  '/guias/$guideId': typeof guiasGuiasGuideIdIndexRoute
+  '/iniciar-sesion': typeof AuthLayoutIniciarSesionRoute
+  '/registrarse': typeof AuthLayoutRegistrarseRoute
+  '/editar-perfil': typeof AppLayoutEditarPerfilIndexRoute
+  '/perfil': typeof AppLayoutPerfilIndexRoute
+  '/crear-guia': typeof AppLayoutguiasCrearGuiaIndexRoute
+  '/guias': typeof AppLayoutguiasGuiasIndexRoute
+  '/perfil/$userId': typeof AppLayoutPerfilUserIdIndexRoute
+  '/editar-guia/$guideId': typeof AppLayoutguiasEditarGuiaGuideIdIndexRoute
+  '/guias/$guideId': typeof AppLayoutguiasGuiasGuideIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_appLayout': typeof AppLayoutRouteWithChildren
+  '/_authLayout': typeof AuthLayoutRouteWithChildren
   '/api': typeof ApiRoute
-  '/editar-perfil/': typeof EditarPerfilIndexRoute
-  '/perfil/': typeof PerfilIndexRoute
-  '/(guias)/crear-guia/': typeof guiasCrearGuiaIndexRoute
-  '/(guias)/guias/': typeof guiasGuiasIndexRoute
-  '/perfil/$userId/': typeof PerfilUserIdIndexRoute
-  '/(guias)/editar-guia/$guideId/': typeof guiasEditarGuiaGuideIdIndexRoute
-  '/(guias)/guias/$guideId/': typeof guiasGuiasGuideIdIndexRoute
+  '/_authLayout/iniciar-sesion': typeof AuthLayoutIniciarSesionRoute
+  '/_authLayout/registrarse': typeof AuthLayoutRegistrarseRoute
+  '/_appLayout/editar-perfil/': typeof AppLayoutEditarPerfilIndexRoute
+  '/_appLayout/perfil/': typeof AppLayoutPerfilIndexRoute
+  '/_appLayout/(guias)/crear-guia/': typeof AppLayoutguiasCrearGuiaIndexRoute
+  '/_appLayout/(guias)/guias/': typeof AppLayoutguiasGuiasIndexRoute
+  '/_appLayout/perfil/$userId/': typeof AppLayoutPerfilUserIdIndexRoute
+  '/_appLayout/(guias)/editar-guia/$guideId/': typeof AppLayoutguiasEditarGuiaGuideIdIndexRoute
+  '/_appLayout/(guias)/guias/$guideId/': typeof AppLayoutguiasGuiasGuideIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/api'
+    | '/iniciar-sesion'
+    | '/registrarse'
     | '/editar-perfil'
     | '/perfil'
     | '/crear-guia'
@@ -116,6 +153,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/api'
+    | '/iniciar-sesion'
+    | '/registrarse'
     | '/editar-perfil'
     | '/perfil'
     | '/crear-guia'
@@ -126,26 +165,25 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_appLayout'
+    | '/_authLayout'
     | '/api'
-    | '/editar-perfil/'
-    | '/perfil/'
-    | '/(guias)/crear-guia/'
-    | '/(guias)/guias/'
-    | '/perfil/$userId/'
-    | '/(guias)/editar-guia/$guideId/'
-    | '/(guias)/guias/$guideId/'
+    | '/_authLayout/iniciar-sesion'
+    | '/_authLayout/registrarse'
+    | '/_appLayout/editar-perfil/'
+    | '/_appLayout/perfil/'
+    | '/_appLayout/(guias)/crear-guia/'
+    | '/_appLayout/(guias)/guias/'
+    | '/_appLayout/perfil/$userId/'
+    | '/_appLayout/(guias)/editar-guia/$guideId/'
+    | '/_appLayout/(guias)/guias/$guideId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppLayoutRoute: typeof AppLayoutRouteWithChildren
+  AuthLayoutRoute: typeof AuthLayoutRouteWithChildren
   ApiRoute: typeof ApiRoute
-  EditarPerfilIndexRoute: typeof EditarPerfilIndexRoute
-  PerfilIndexRoute: typeof PerfilIndexRoute
-  guiasCrearGuiaIndexRoute: typeof guiasCrearGuiaIndexRoute
-  guiasGuiasIndexRoute: typeof guiasGuiasIndexRoute
-  PerfilUserIdIndexRoute: typeof PerfilUserIdIndexRoute
-  guiasEditarGuiaGuideIdIndexRoute: typeof guiasEditarGuiaGuideIdIndexRoute
-  guiasGuiasGuideIdIndexRoute: typeof guiasGuiasGuideIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -157,6 +195,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authLayout': {
+      id: '/_authLayout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AuthLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_appLayout': {
+      id: '/_appLayout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AppLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -164,68 +216,116 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/perfil/': {
-      id: '/perfil/'
+    '/_authLayout/registrarse': {
+      id: '/_authLayout/registrarse'
+      path: '/registrarse'
+      fullPath: '/registrarse'
+      preLoaderRoute: typeof AuthLayoutRegistrarseRouteImport
+      parentRoute: typeof AuthLayoutRoute
+    }
+    '/_authLayout/iniciar-sesion': {
+      id: '/_authLayout/iniciar-sesion'
+      path: '/iniciar-sesion'
+      fullPath: '/iniciar-sesion'
+      preLoaderRoute: typeof AuthLayoutIniciarSesionRouteImport
+      parentRoute: typeof AuthLayoutRoute
+    }
+    '/_appLayout/perfil/': {
+      id: '/_appLayout/perfil/'
       path: '/perfil'
       fullPath: '/perfil'
-      preLoaderRoute: typeof PerfilIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AppLayoutPerfilIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
     }
-    '/editar-perfil/': {
-      id: '/editar-perfil/'
+    '/_appLayout/editar-perfil/': {
+      id: '/_appLayout/editar-perfil/'
       path: '/editar-perfil'
       fullPath: '/editar-perfil'
-      preLoaderRoute: typeof EditarPerfilIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AppLayoutEditarPerfilIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
     }
-    '/perfil/$userId/': {
-      id: '/perfil/$userId/'
+    '/_appLayout/perfil/$userId/': {
+      id: '/_appLayout/perfil/$userId/'
       path: '/perfil/$userId'
       fullPath: '/perfil/$userId'
-      preLoaderRoute: typeof PerfilUserIdIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AppLayoutPerfilUserIdIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
     }
-    '/(guias)/guias/': {
-      id: '/(guias)/guias/'
+    '/_appLayout/(guias)/guias/': {
+      id: '/_appLayout/(guias)/guias/'
       path: '/guias'
       fullPath: '/guias'
-      preLoaderRoute: typeof guiasGuiasIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AppLayoutguiasGuiasIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
     }
-    '/(guias)/crear-guia/': {
-      id: '/(guias)/crear-guia/'
+    '/_appLayout/(guias)/crear-guia/': {
+      id: '/_appLayout/(guias)/crear-guia/'
       path: '/crear-guia'
       fullPath: '/crear-guia'
-      preLoaderRoute: typeof guiasCrearGuiaIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AppLayoutguiasCrearGuiaIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
     }
-    '/(guias)/guias/$guideId/': {
-      id: '/(guias)/guias/$guideId/'
+    '/_appLayout/(guias)/guias/$guideId/': {
+      id: '/_appLayout/(guias)/guias/$guideId/'
       path: '/guias/$guideId'
       fullPath: '/guias/$guideId'
-      preLoaderRoute: typeof guiasGuiasGuideIdIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AppLayoutguiasGuiasGuideIdIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
     }
-    '/(guias)/editar-guia/$guideId/': {
-      id: '/(guias)/editar-guia/$guideId/'
+    '/_appLayout/(guias)/editar-guia/$guideId/': {
+      id: '/_appLayout/(guias)/editar-guia/$guideId/'
       path: '/editar-guia/$guideId'
       fullPath: '/editar-guia/$guideId'
-      preLoaderRoute: typeof guiasEditarGuiaGuideIdIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AppLayoutguiasEditarGuiaGuideIdIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
     }
   }
 }
 
+interface AppLayoutRouteChildren {
+  AppLayoutEditarPerfilIndexRoute: typeof AppLayoutEditarPerfilIndexRoute
+  AppLayoutPerfilIndexRoute: typeof AppLayoutPerfilIndexRoute
+  AppLayoutguiasCrearGuiaIndexRoute: typeof AppLayoutguiasCrearGuiaIndexRoute
+  AppLayoutguiasGuiasIndexRoute: typeof AppLayoutguiasGuiasIndexRoute
+  AppLayoutPerfilUserIdIndexRoute: typeof AppLayoutPerfilUserIdIndexRoute
+  AppLayoutguiasEditarGuiaGuideIdIndexRoute: typeof AppLayoutguiasEditarGuiaGuideIdIndexRoute
+  AppLayoutguiasGuiasGuideIdIndexRoute: typeof AppLayoutguiasGuiasGuideIdIndexRoute
+}
+
+const AppLayoutRouteChildren: AppLayoutRouteChildren = {
+  AppLayoutEditarPerfilIndexRoute: AppLayoutEditarPerfilIndexRoute,
+  AppLayoutPerfilIndexRoute: AppLayoutPerfilIndexRoute,
+  AppLayoutguiasCrearGuiaIndexRoute: AppLayoutguiasCrearGuiaIndexRoute,
+  AppLayoutguiasGuiasIndexRoute: AppLayoutguiasGuiasIndexRoute,
+  AppLayoutPerfilUserIdIndexRoute: AppLayoutPerfilUserIdIndexRoute,
+  AppLayoutguiasEditarGuiaGuideIdIndexRoute:
+    AppLayoutguiasEditarGuiaGuideIdIndexRoute,
+  AppLayoutguiasGuiasGuideIdIndexRoute: AppLayoutguiasGuiasGuideIdIndexRoute,
+}
+
+const AppLayoutRouteWithChildren = AppLayoutRoute._addFileChildren(
+  AppLayoutRouteChildren,
+)
+
+interface AuthLayoutRouteChildren {
+  AuthLayoutIniciarSesionRoute: typeof AuthLayoutIniciarSesionRoute
+  AuthLayoutRegistrarseRoute: typeof AuthLayoutRegistrarseRoute
+}
+
+const AuthLayoutRouteChildren: AuthLayoutRouteChildren = {
+  AuthLayoutIniciarSesionRoute: AuthLayoutIniciarSesionRoute,
+  AuthLayoutRegistrarseRoute: AuthLayoutRegistrarseRoute,
+}
+
+const AuthLayoutRouteWithChildren = AuthLayoutRoute._addFileChildren(
+  AuthLayoutRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppLayoutRoute: AppLayoutRouteWithChildren,
+  AuthLayoutRoute: AuthLayoutRouteWithChildren,
   ApiRoute: ApiRoute,
-  EditarPerfilIndexRoute: EditarPerfilIndexRoute,
-  PerfilIndexRoute: PerfilIndexRoute,
-  guiasCrearGuiaIndexRoute: guiasCrearGuiaIndexRoute,
-  guiasGuiasIndexRoute: guiasGuiasIndexRoute,
-  PerfilUserIdIndexRoute: PerfilUserIdIndexRoute,
-  guiasEditarGuiaGuideIdIndexRoute: guiasEditarGuiaGuideIdIndexRoute,
-  guiasGuiasGuideIdIndexRoute: guiasGuiasGuideIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
