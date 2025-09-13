@@ -13,3 +13,16 @@ export async function createUser(data: CreateUser) {
 	}
 	return res.json();
 }
+
+export async function getAllUsers() {
+	const res = await fetch(`${import.meta.env.VITE_API_URL}/user`, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+	if (!res.ok) {
+		throw new Error("Error fetching users");
+	}
+	return res.json();
+}

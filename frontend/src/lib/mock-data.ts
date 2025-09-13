@@ -50,7 +50,7 @@ export const gradients = [
 	"bg-gradient-to-r from-teal-500 to-cyan-500",
 ];
 
-const mockUsers: User[] = [
+export const mockUsers: User[] = [
 	{
 		id: "user-1",
 		username: "gamerPro",

@@ -15,11 +15,14 @@ import { Route as AppLayoutRouteImport } from './routes/_appLayout'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthLayoutRegistrarseRouteImport } from './routes/_authLayout/registrarse'
 import { Route as AuthLayoutIniciarSesionRouteImport } from './routes/_authLayout/iniciar-sesion'
+import { Route as AppLayoutAdminLayoutRouteImport } from './routes/_appLayout/_adminLayout'
 import { Route as AppLayoutPerfilIndexRouteImport } from './routes/_appLayout/perfil/index'
 import { Route as AppLayoutEditarPerfilIndexRouteImport } from './routes/_appLayout/editar-perfil/index'
 import { Route as AppLayoutPerfilUserIdIndexRouteImport } from './routes/_appLayout/perfil/$userId/index'
+import { Route as AppLayoutAdminLayoutAdminIndexRouteImport } from './routes/_appLayout/_adminLayout/admin/index'
 import { Route as AppLayoutguiasGuiasIndexRouteImport } from './routes/_appLayout/(guias)/guias/index'
 import { Route as AppLayoutguiasCrearGuiaIndexRouteImport } from './routes/_appLayout/(guias)/crear-guia/index'
+import { Route as AppLayoutAdminLayoutAdminUsuariosIndexRouteImport } from './routes/_appLayout/_adminLayout/admin/usuarios/index'
 import { Route as AppLayoutguiasGuiasGuideIdIndexRouteImport } from './routes/_appLayout/(guias)/guias/$guideId/index'
 import { Route as AppLayoutguiasEditarGuiaGuideIdIndexRouteImport } from './routes/_appLayout/(guias)/editar-guia/$guideId/index'
 
@@ -51,6 +54,10 @@ const AuthLayoutIniciarSesionRoute = AuthLayoutIniciarSesionRouteImport.update({
   path: '/iniciar-sesion',
   getParentRoute: () => AuthLayoutRoute,
 } as any)
+const AppLayoutAdminLayoutRoute = AppLayoutAdminLayoutRouteImport.update({
+  id: '/_adminLayout',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
 const AppLayoutPerfilIndexRoute = AppLayoutPerfilIndexRouteImport.update({
   id: '/perfil/',
   path: '/perfil/',
@@ -68,6 +75,12 @@ const AppLayoutPerfilUserIdIndexRoute =
     path: '/perfil/$userId/',
     getParentRoute: () => AppLayoutRoute,
   } as any)
+const AppLayoutAdminLayoutAdminIndexRoute =
+  AppLayoutAdminLayoutAdminIndexRouteImport.update({
+    id: '/admin/',
+    path: '/admin/',
+    getParentRoute: () => AppLayoutAdminLayoutRoute,
+  } as any)
 const AppLayoutguiasGuiasIndexRoute =
   AppLayoutguiasGuiasIndexRouteImport.update({
     id: '/(guias)/guias/',
@@ -79,6 +92,12 @@ const AppLayoutguiasCrearGuiaIndexRoute =
     id: '/(guias)/crear-guia/',
     path: '/crear-guia/',
     getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppLayoutAdminLayoutAdminUsuariosIndexRoute =
+  AppLayoutAdminLayoutAdminUsuariosIndexRouteImport.update({
+    id: '/admin/usuarios/',
+    path: '/admin/usuarios/',
+    getParentRoute: () => AppLayoutAdminLayoutRoute,
   } as any)
 const AppLayoutguiasGuiasGuideIdIndexRoute =
   AppLayoutguiasGuiasGuideIdIndexRouteImport.update({
@@ -102,9 +121,11 @@ export interface FileRoutesByFullPath {
   '/perfil': typeof AppLayoutPerfilIndexRoute
   '/crear-guia': typeof AppLayoutguiasCrearGuiaIndexRoute
   '/guias': typeof AppLayoutguiasGuiasIndexRoute
+  '/admin': typeof AppLayoutAdminLayoutAdminIndexRoute
   '/perfil/$userId': typeof AppLayoutPerfilUserIdIndexRoute
   '/editar-guia/$guideId': typeof AppLayoutguiasEditarGuiaGuideIdIndexRoute
   '/guias/$guideId': typeof AppLayoutguiasGuiasGuideIdIndexRoute
+  '/admin/usuarios': typeof AppLayoutAdminLayoutAdminUsuariosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -115,9 +136,11 @@ export interface FileRoutesByTo {
   '/perfil': typeof AppLayoutPerfilIndexRoute
   '/crear-guia': typeof AppLayoutguiasCrearGuiaIndexRoute
   '/guias': typeof AppLayoutguiasGuiasIndexRoute
+  '/admin': typeof AppLayoutAdminLayoutAdminIndexRoute
   '/perfil/$userId': typeof AppLayoutPerfilUserIdIndexRoute
   '/editar-guia/$guideId': typeof AppLayoutguiasEditarGuiaGuideIdIndexRoute
   '/guias/$guideId': typeof AppLayoutguiasGuiasGuideIdIndexRoute
+  '/admin/usuarios': typeof AppLayoutAdminLayoutAdminUsuariosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,15 +148,18 @@ export interface FileRoutesById {
   '/_appLayout': typeof AppLayoutRouteWithChildren
   '/_authLayout': typeof AuthLayoutRouteWithChildren
   '/api': typeof ApiRoute
+  '/_appLayout/_adminLayout': typeof AppLayoutAdminLayoutRouteWithChildren
   '/_authLayout/iniciar-sesion': typeof AuthLayoutIniciarSesionRoute
   '/_authLayout/registrarse': typeof AuthLayoutRegistrarseRoute
   '/_appLayout/editar-perfil/': typeof AppLayoutEditarPerfilIndexRoute
   '/_appLayout/perfil/': typeof AppLayoutPerfilIndexRoute
   '/_appLayout/(guias)/crear-guia/': typeof AppLayoutguiasCrearGuiaIndexRoute
   '/_appLayout/(guias)/guias/': typeof AppLayoutguiasGuiasIndexRoute
+  '/_appLayout/_adminLayout/admin/': typeof AppLayoutAdminLayoutAdminIndexRoute
   '/_appLayout/perfil/$userId/': typeof AppLayoutPerfilUserIdIndexRoute
   '/_appLayout/(guias)/editar-guia/$guideId/': typeof AppLayoutguiasEditarGuiaGuideIdIndexRoute
   '/_appLayout/(guias)/guias/$guideId/': typeof AppLayoutguiasGuiasGuideIdIndexRoute
+  '/_appLayout/_adminLayout/admin/usuarios/': typeof AppLayoutAdminLayoutAdminUsuariosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -146,9 +172,11 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/crear-guia'
     | '/guias'
+    | '/admin'
     | '/perfil/$userId'
     | '/editar-guia/$guideId'
     | '/guias/$guideId'
+    | '/admin/usuarios'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -159,24 +187,29 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/crear-guia'
     | '/guias'
+    | '/admin'
     | '/perfil/$userId'
     | '/editar-guia/$guideId'
     | '/guias/$guideId'
+    | '/admin/usuarios'
   id:
     | '__root__'
     | '/'
     | '/_appLayout'
     | '/_authLayout'
     | '/api'
+    | '/_appLayout/_adminLayout'
     | '/_authLayout/iniciar-sesion'
     | '/_authLayout/registrarse'
     | '/_appLayout/editar-perfil/'
     | '/_appLayout/perfil/'
     | '/_appLayout/(guias)/crear-guia/'
     | '/_appLayout/(guias)/guias/'
+    | '/_appLayout/_adminLayout/admin/'
     | '/_appLayout/perfil/$userId/'
     | '/_appLayout/(guias)/editar-guia/$guideId/'
     | '/_appLayout/(guias)/guias/$guideId/'
+    | '/_appLayout/_adminLayout/admin/usuarios/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -230,6 +263,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLayoutIniciarSesionRouteImport
       parentRoute: typeof AuthLayoutRoute
     }
+    '/_appLayout/_adminLayout': {
+      id: '/_appLayout/_adminLayout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AppLayoutAdminLayoutRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
     '/_appLayout/perfil/': {
       id: '/_appLayout/perfil/'
       path: '/perfil'
@@ -251,6 +291,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppLayoutPerfilUserIdIndexRouteImport
       parentRoute: typeof AppLayoutRoute
     }
+    '/_appLayout/_adminLayout/admin/': {
+      id: '/_appLayout/_adminLayout/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AppLayoutAdminLayoutAdminIndexRouteImport
+      parentRoute: typeof AppLayoutAdminLayoutRoute
+    }
     '/_appLayout/(guias)/guias/': {
       id: '/_appLayout/(guias)/guias/'
       path: '/guias'
@@ -264,6 +311,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/crear-guia'
       preLoaderRoute: typeof AppLayoutguiasCrearGuiaIndexRouteImport
       parentRoute: typeof AppLayoutRoute
+    }
+    '/_appLayout/_adminLayout/admin/usuarios/': {
+      id: '/_appLayout/_adminLayout/admin/usuarios/'
+      path: '/admin/usuarios'
+      fullPath: '/admin/usuarios'
+      preLoaderRoute: typeof AppLayoutAdminLayoutAdminUsuariosIndexRouteImport
+      parentRoute: typeof AppLayoutAdminLayoutRoute
     }
     '/_appLayout/(guias)/guias/$guideId/': {
       id: '/_appLayout/(guias)/guias/$guideId/'
@@ -282,7 +336,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AppLayoutAdminLayoutRouteChildren {
+  AppLayoutAdminLayoutAdminIndexRoute: typeof AppLayoutAdminLayoutAdminIndexRoute
+  AppLayoutAdminLayoutAdminUsuariosIndexRoute: typeof AppLayoutAdminLayoutAdminUsuariosIndexRoute
+}
+
+const AppLayoutAdminLayoutRouteChildren: AppLayoutAdminLayoutRouteChildren = {
+  AppLayoutAdminLayoutAdminIndexRoute: AppLayoutAdminLayoutAdminIndexRoute,
+  AppLayoutAdminLayoutAdminUsuariosIndexRoute:
+    AppLayoutAdminLayoutAdminUsuariosIndexRoute,
+}
+
+const AppLayoutAdminLayoutRouteWithChildren =
+  AppLayoutAdminLayoutRoute._addFileChildren(AppLayoutAdminLayoutRouteChildren)
+
 interface AppLayoutRouteChildren {
+  AppLayoutAdminLayoutRoute: typeof AppLayoutAdminLayoutRouteWithChildren
   AppLayoutEditarPerfilIndexRoute: typeof AppLayoutEditarPerfilIndexRoute
   AppLayoutPerfilIndexRoute: typeof AppLayoutPerfilIndexRoute
   AppLayoutguiasCrearGuiaIndexRoute: typeof AppLayoutguiasCrearGuiaIndexRoute
@@ -293,6 +362,7 @@ interface AppLayoutRouteChildren {
 }
 
 const AppLayoutRouteChildren: AppLayoutRouteChildren = {
+  AppLayoutAdminLayoutRoute: AppLayoutAdminLayoutRouteWithChildren,
   AppLayoutEditarPerfilIndexRoute: AppLayoutEditarPerfilIndexRoute,
   AppLayoutPerfilIndexRoute: AppLayoutPerfilIndexRoute,
   AppLayoutguiasCrearGuiaIndexRoute: AppLayoutguiasCrearGuiaIndexRoute,

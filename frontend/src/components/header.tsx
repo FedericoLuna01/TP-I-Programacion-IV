@@ -5,7 +5,8 @@ import { ModeToggle } from "./mode-toggle";
 import Logo from "./ui/logo";
 
 const Header = () => {
-	const IS_LOGGED = false;
+	const IS_LOGGED = true;
+	const IS_ADMIN = true;
 
 	return (
 		<header className="fixed z-50 w-full bg-background/70 backdrop-blur-xl border-b">
@@ -16,6 +17,11 @@ const Header = () => {
 						<Button asChild variant="ghost" className="hidden lg:flex">
 							<Link to="/guias">Explorar</Link>
 						</Button>
+						{IS_LOGGED && IS_ADMIN && (
+							<Button asChild variant="ghost" className="hidden lg:flex">
+								<Link to="/admin">Admin</Link>
+							</Button>
+						)}
 						{IS_LOGGED ? (
 							<>
 								<Button asChild variant="outline" className="hidden sm:flex">

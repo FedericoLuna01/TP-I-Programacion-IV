@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {}
+    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
+    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\obj\\",
+        "outputPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
