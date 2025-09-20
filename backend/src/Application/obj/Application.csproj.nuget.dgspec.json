@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {}
+    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {
+    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj",
+        "projectUniqueName": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj",
+        "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\obj\\",
+        "outputPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
