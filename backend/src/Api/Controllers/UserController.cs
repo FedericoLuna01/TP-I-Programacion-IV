@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain.Dtos.User;
 using Domain.Entities;
-using Infrastructure.Data;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -13,12 +13,11 @@ namespace Api.Controllers
     [Route("api/user")]
     public class UserController : ControllerBase
     {
+        private readonly IUserRepository _userRepo;
 
-        private readonly ApplicationDbContext _context;
-
-        public UserController(ApplicationDbContext dbContext)
+        public UserController(IUserRepository userRepo)
         {
-            _context = dbContext;
+            _userRepo = userRepo;
         }
 
         [HttpPost]
@@ -32,24 +31,37 @@ namespace Api.Controllers
                 PasswordHash = userDto.Password
             };
 
-            _context.Users.Add(user);
-            _context.SaveChanges();
+            _userRepo.Create(user);
 
             return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
         }
 
+
         [HttpGet]
         public IActionResult GetAll()
         {
-            var users = _context.Users.ToList();
+            var users = _userRepo.GetAll();
+            // TODO: Pasar el dto para no pasar la password
             return Ok(users);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var deleted = _userRepo.Delete(id);
+            if (!deleted)
+            {
+                return NotFound("User not found");
+            }
+            return NoContent();
         }
 
         [HttpGet]
         [Route("{id}")]
         public IActionResult GetUserById([FromRoute] int id)
         {
-            var user = _context.Users.Find(id);
+            var user = _userRepo.GetById(id);
 
             if (user == null)
             {
@@ -57,6 +69,29 @@ namespace Api.Controllers
             }
 
             return Ok(user);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult Update([FromRoute] int id, UpdateUserDto updateUser)
+        {
+
+            var user = new User
+            {
+                Avatar = updateUser.Avatar,
+                Banner = updateUser.Banner,
+                Role = updateUser.Role,
+                Username = updateUser.Username
+            };
+
+            var updatedUser = _userRepo.Update(id, user);
+
+            if (updatedUser == null)
+            {
+                return NotFound("User not found");
+            }
+
+            return Ok(updatedUser);
         }
     }
 }
