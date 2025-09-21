@@ -11,5 +11,8 @@ namespace Domain.Interfaces
     {
         Game Create(Game createGame);
         List<Game> GetAll();
+        Game? GetById(int id);
+        Game? Delete(int id);
+        Game? Update(int id, Game updateGame);
     }
 }
