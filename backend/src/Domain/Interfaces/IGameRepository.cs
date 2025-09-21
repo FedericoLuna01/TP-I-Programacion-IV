@@ -10,5 +10,6 @@ namespace Domain.Interfaces
     public interface IGameRepository
     {
         Game Create(Game createGame);
+        List<Game> GetAll();
     }
 }
