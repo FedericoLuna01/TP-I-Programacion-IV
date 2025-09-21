@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Api\\Api.csproj": {}
+    "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\api\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Api\\Api.csproj": {
+    "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Api\\Api.csproj",
+        "projectUniqueName": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Api\\Api.csproj",
+        "projectPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\api\\Api.csproj",
         "packagesPath": "C:\\Users\\tessa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Api\\obj\\",
+        "outputPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tessa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -53,7 +53,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[10.0.0-rc.1.25451.107, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

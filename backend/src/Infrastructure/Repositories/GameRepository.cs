@@ -22,5 +22,10 @@ namespace Infrastructure.Repositories
             _context.SaveChanges();
             return createGame;
         }
+        public List<Game> GetAll()
+        {
+            var games = _context.Games.ToList();
+            return games;
+        }
     }
 }

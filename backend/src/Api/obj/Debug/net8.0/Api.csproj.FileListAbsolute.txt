@@ -533,3 +533,7 @@ C:\Users\tessa\Desktop\prog 4\backend\src\Api\obj\Debug\net8.0\refint\Api.dll
 C:\Users\tessa\Desktop\prog 4\backend\src\Api\obj\Debug\net8.0\Api.pdb
 C:\Users\tessa\Desktop\prog 4\backend\src\Api\obj\Debug\net8.0\Api.genruntimeconfig.cache
 C:\Users\tessa\Desktop\prog 4\backend\src\Api\obj\Debug\net8.0\ref\Api.dll
+C:\Users\tessa\Desktop\prog 4\backend\src\api\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\tessa\Desktop\prog 4\backend\src\api\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\tessa\Desktop\prog 4\backend\src\api\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\tessa\Desktop\prog 4\backend\src\api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

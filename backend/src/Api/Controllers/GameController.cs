@@ -33,5 +33,11 @@ namespace Api.Controllers
             var createdGame = _gameRepo.Create(newGame);
             return Ok(createdGame);
         }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var games = _gameRepo.GetAll();
+            return Ok(games);
+        }
     }
 }
