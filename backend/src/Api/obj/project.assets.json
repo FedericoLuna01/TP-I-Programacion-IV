@@ -15,6 +15,9 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/10.0.0-rc.1.25451.107": {
+        "type": "package"
+      },
       "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
         "type": "package",
         "compile": {
@@ -749,6 +752,19 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
+      "Newtonsoft.Json/13.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.10": {
         "type": "package",
         "dependencies": {
@@ -1280,6 +1296,22 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/10.0.0-rc.1.25451.107": {
+      "sha512": "C0xP0HLxd2bVYLlyv8AN5ZGarmJZtto/j3kiGPqja/cyD87LvpYUBX58GbdGfY8tFTL6ReNAQiwJo2E1eUxcHg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/10.0.0-rc.1.25451.107",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.xml",
+        "microsoft.aspnetcore.mvc.newtonsoftjson.10.0.0-rc.1.25451.107.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.newtonsoftjson.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
@@ -3022,6 +3054,36 @@
         "readme.md"
       ]
     },
+    "Newtonsoft.Json/13.0.4": {
+      "sha512": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.4.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.10": {
       "sha512": "UxWuisvZ3uVcVOLJQv7urM/JiQH+v3TmaJc1BLKl5Dxfm/nTzTUrqswCqg/INiYLi61AXnHo1M1JPmPqqLnAdg==",
       "type": "package",
@@ -3705,27 +3767,29 @@
     "net8.0": [
       "Application >= 1.0.0",
       "Infrastructure >= 1.0.0",
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 10.0.0-rc.1.25451.107",
       "Microsoft.EntityFrameworkCore >= 9.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.9",
       "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.9",
+      "Newtonsoft.Json >= 13.0.4",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Fede\\.nuget\\packages\\": {}
+    "C:\\Users\\tessa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Api\\Api.csproj",
+      "projectUniqueName": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Api\\Api.csproj",
-      "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-      "outputPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Api\\obj\\",
+      "projectPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Api\\Api.csproj",
+      "packagesPath": "C:\\Users\\tessa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tessa\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3737,11 +3801,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {
-              "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj"
+            "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Application\\Application.csproj"
             },
-            "c:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -3755,12 +3819,17 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+            "target": "Package",
+            "version": "[10.0.0-rc.1.25451.107, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[9.0.9, )"
@@ -3776,6 +3845,10 @@
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
             "version": "[9.0.9, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.4, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -3801,8 +3874,19 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "El paquete Microsoft.AspNetCore.Mvc.NewtonsoftJson 10.0.0-rc.1.25451.107 no es compatible con net8.0 (.NETCoreApp,Version=v8.0). El paquete Microsoft.AspNetCore.Mvc.NewtonsoftJson 10.0.0-rc.1.25451.107 admite: net10.0 (.NETCoreApp,Version=v10.0)",
+      "libraryId": "Microsoft.AspNetCore.Mvc.NewtonsoftJson",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
