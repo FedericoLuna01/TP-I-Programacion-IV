@@ -18,6 +18,7 @@ namespace Api.Controllers
         {
             _gameRepo = gameRepository;
         }
+
         [HttpPost]
         public IActionResult Create([FromBody] CreateGameDto gameDto)
         {
@@ -32,8 +33,8 @@ namespace Api.Controllers
 
             var createdGame = _gameRepo.Create(newGame);
             return CreatedAtAction(nameof(GetById), new { id = newGame.Id }, newGame);
-            // return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
         }
+
         [HttpGet]
         public IActionResult GetAll()
         {
