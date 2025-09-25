@@ -29,8 +29,8 @@
               "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {
                 "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj"
               },
-              "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj"
+              "c:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -160,14 +160,14 @@
         }
       }
     },
-    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
+    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
+        "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\obj\\",
+        "outputPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -218,14 +218,14 @@
         }
       }
     },
-    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
+    "c:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\obj\\",
+        "outputPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -243,8 +243,8 @@
               "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj": {
                 "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Application\\Application.csproj"
               },
-              "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj"
+              "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj"
               }
             }
           }
