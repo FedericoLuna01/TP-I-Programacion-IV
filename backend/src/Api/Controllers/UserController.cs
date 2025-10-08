@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Domain.Dtos.User;
+using Api.Models.Users;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +21,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreateUserDto userDto)
+        public IActionResult Create([FromBody] CreateUserRequest userDto)
         {
             var user = new User
             {
@@ -38,11 +38,10 @@ namespace Api.Controllers
 
 
         [HttpGet]
-        public IActionResult GetAll()
+        public ActionResult<List<UserDto>> GetAll()
         {
             var users = _userRepo.GetAll();
-            // TODO: Pasar el dto para no pasar la password
-            return Ok(users);
+            return UserDto.Create(users);
         }
 
         [HttpDelete]
@@ -59,7 +58,7 @@ namespace Api.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetUserById([FromRoute] int id)
+        public ActionResult<UserDto> GetUserById([FromRoute] int id)
         {
             var user = _userRepo.GetById(id);
 
@@ -68,12 +67,12 @@ namespace Api.Controllers
                 return NotFound("User not found");
             }
 
-            return Ok(user);
+            return UserDto.Create(user);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update([FromRoute] int id, UpdateUserDto updateUser)
+        public IActionResult Update([FromRoute] int id, UpdateUserRequest updateUser)
         {
 
             var user = new User
