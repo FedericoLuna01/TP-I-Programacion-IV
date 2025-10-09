@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Domain.Dtos.Game;
+using System.Threading.Tasks; 
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
@@ -18,6 +17,15 @@ namespace Infrastructure.Repositories
         }
         public Game Create(Game createGame)
         {
+            if (createGame.UserId != 0)
+            {
+                var user = _context.Users.Find(createGame.UserId);
+                if (user != null)
+                {
+                    createGame.User = user;
+                }
+            }
+
             _context.Games.Add(createGame);
             _context.SaveChanges();
             return createGame;
