@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Domain.Dtos.Guide;
+using Api.Models.Guide;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +21,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateGuideDto guideDto)
+        public IActionResult Create([FromBody]CreateGuideRequest guideDto)
         {
             var guide = new Guide
             {
@@ -51,6 +51,7 @@ namespace Api.Controllers
         [HttpGet]
         [Route("{id}")]
         public IActionResult GetById([FromRoute] int id)
+
         {
             var guide = _guideRepo.GetById(id);
 
@@ -61,5 +62,7 @@ namespace Api.Controllers
 
             return Ok(guide);
         }
+
+        // TODO: hacer los que faltan
     }
 }

@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Domain.Dtos.Game;
+using Api.Models.Game;
+using Api.Models.Guide;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreateGameDto gameDto)
+        public IActionResult Create([FromBody] CreateGameRequest gameDto)
         {
             var newGame = new Game
             {
@@ -31,7 +32,7 @@ namespace Api.Controllers
                 UserId = gameDto.UserId
             };
 
-            var createdGame = _gameRepo.Create(newGame);
+            _gameRepo.Create(newGame);
             return CreatedAtAction(nameof(GetById), new { id = newGame.Id }, newGame);
         }
 
@@ -68,7 +69,7 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateGame([FromRoute] int id, UpdateGameDto updateDto)
+        public IActionResult UpdateGame([FromRoute] int id, UpdateGameRequest updateDto)
         {
             var game = new Game
             {
