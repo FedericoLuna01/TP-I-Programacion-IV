@@ -7,11 +7,11 @@ using Domain.Entities;
 
 namespace Api.Models.Users
 {
-    public record UserDto(string Email, string Username, UserRole Role)
+    public record UserDto(string Email, string Username, UserRole Role, int Id)
     {
         public static UserDto Create(User entity)
         {
-            var dto = new UserDto(entity.Email, entity.Username, entity.Role);
+            var dto = new UserDto(entity.Email, entity.Username, entity.Role, entity.Id);
 
             return dto;
         }

@@ -10,7 +10,6 @@ namespace Domain.Entities
     {
         public int Id { get; set; }
         public string CommentText { get; set; } = string.Empty;
-
         public DateTime CreatedAt { get; set; }
 
         // Relations  
