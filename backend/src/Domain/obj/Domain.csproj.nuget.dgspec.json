@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {}
+    "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj": {
+    "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\tp-i-programacion\\backend\\src\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\tessa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tessa\\Desktop\\prog 4\\backend\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\tessa\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -58,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
