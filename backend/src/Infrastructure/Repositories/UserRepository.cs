@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domain.Exceptions;
 using Domain.Interfaces;
 using Infrastructure.Data;
 
@@ -28,13 +30,12 @@ namespace Infrastructure.Repositories
         public bool Delete(int id)
         {
             var user = _context.Users.Find(id);
-            if (user != null)
-            {
-                _context.Users.Remove(user);
-                _context.SaveChanges();
-                return true;
-            }
-            return false;
+            if (user == null) throw new UserNotFoundException();
+
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+
+            return true;
         }
 
         public IEnumerable<User> GetAll()
@@ -53,7 +54,7 @@ namespace Infrastructure.Repositories
         {
             var user = _context.Users.Find(id);
 
-            if (user == null) return null;
+            if (user == null) throw new UserNotFoundException();
 
             user.Avatar = updateUser.Avatar;
             user.Banner = updateUser.Banner;

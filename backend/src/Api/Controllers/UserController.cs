@@ -48,11 +48,8 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult Delete(int id)
         {
-            var deleted = _userRepo.Delete(id);
-            if (!deleted)
-            {
-                return NotFound("User not found");
-            }
+            _userRepo.Delete(id);
+
             return NoContent();
         }
 
@@ -85,14 +82,9 @@ namespace Api.Controllers
 
             var updatedUser = _userRepo.Update(id, user);
 
-            if (updatedUser == null)
-            {
-                return NotFound("User not found");
-            }
-
             return Ok(updatedUser);
         }
     }
-    
+
 
 }
