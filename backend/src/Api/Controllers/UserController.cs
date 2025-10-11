@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Api.Models.Users;
 using Domain.Entities;
 using Domain.Interfaces;
+using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -13,11 +14,11 @@ namespace Api.Controllers
     [Route("api/user")]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository _userRepo;
+        private readonly UserService _userService;
 
-        public UserController(IUserRepository userRepo)
+        public UserController(UserService userService)
         {
-            _userRepo = userRepo;
+            _userService = userService;
         }
 
         [HttpPost]
@@ -31,7 +32,7 @@ namespace Api.Controllers
                 PasswordHash = userDto.Password
             };
 
-            _userRepo.Create(user);
+            _userService.Create(user);
 
             return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
         }
@@ -40,7 +41,7 @@ namespace Api.Controllers
         [HttpGet]
         public ActionResult<List<UserDto>> GetAll()
         {
-            var users = _userRepo.GetAll();
+            var users = _userService.GetAll();
             return UserDto.Create(users);
         }
 
@@ -48,7 +49,7 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult Delete(int id)
         {
-            _userRepo.Delete(id);
+            _userService.Delete(id);
 
             return NoContent();
         }
@@ -57,12 +58,7 @@ namespace Api.Controllers
         [Route("{id}")]
         public ActionResult<UserDto> GetUserById([FromRoute] int id)
         {
-            var user = _userRepo.GetById(id);
-
-            if (user == null)
-            {
-                return NotFound("User not found");
-            }
+            var user = _userService.GetById(id);
 
             return UserDto.Create(user);
         }
@@ -71,7 +67,6 @@ namespace Api.Controllers
         [Route("{id}")]
         public IActionResult Update([FromRoute] int id, UpdateUserRequest updateUser)
         {
-
             var user = new User
             {
                 Avatar = updateUser.Avatar,
@@ -80,7 +75,7 @@ namespace Api.Controllers
                 Username = updateUser.Username
             };
 
-            var updatedUser = _userRepo.Update(id, user);
+            var updatedUser = _userService.Update(id, user);
 
             return Ok(updatedUser);
         }

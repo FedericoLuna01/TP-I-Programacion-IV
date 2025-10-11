@@ -1,4 +1,5 @@
 using Domain.Interfaces;
+using Domain.Services;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Microsoft.Data.Sqlite;
@@ -30,6 +31,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IGuideRepository, GuideRepository>();
+builder.Services.AddScoped<UserService>();
 builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
 var connection = new SqliteConnection("Data Source=GuideonDb.db");
