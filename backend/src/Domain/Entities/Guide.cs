@@ -23,5 +23,6 @@ namespace Domain.Entities
         public User? Author { get; set; }
         public List<Comment> Comments { get; set; } = new List<Comment>();
         public List<Score> Scores { get; set; } = new List<Score>();
+        // TODO: Agregar el juego
     }
 }

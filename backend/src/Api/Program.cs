@@ -32,6 +32,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IGuideRepository, GuideRepository>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<GameService>();
+builder.Services.AddScoped<GuideService>();
 builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
 var connection = new SqliteConnection("Data Source=GuideonDb.db");

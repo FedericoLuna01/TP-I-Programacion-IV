@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Api.Models.Guide;
 using Domain.Entities;
 using Domain.Interfaces;
+using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -13,15 +14,15 @@ namespace Api.Controllers
     [Route("api/guide")]
     public class GuideController : ControllerBase
     {
-        private readonly IGuideRepository _guideRepo;
+        private readonly GuideService _guideService;
 
-        public GuideController(IGuideRepository guideRepo)
+        public GuideController(GuideService guideService)
         {
-            _guideRepo = guideRepo;
+            _guideService = guideService;
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody]CreateGuideRequest guideDto)
+        public IActionResult Create([FromBody] CreateGuideRequest guideDto)
         {
             var guide = new Guide
             {
@@ -34,15 +35,15 @@ namespace Api.Controllers
                 AuthorId = guideDto.AuthorId
             };
 
-            _guideRepo.Create(guide);
+            _guideService.Create(guide);
 
             return CreatedAtAction(nameof(GetById), new { id = guide.Id }, guide);
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public ActionResult<IEnumerable<Guide>> GetAll()
         {
-            var guides = _guideRepo.GetAll();
+            var guides = _guideService.GetAll();
             return Ok(guides);
         }
 
@@ -50,17 +51,12 @@ namespace Api.Controllers
         // [HttpGet("{id}")]
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        public ActionResult<Guide> GetById([FromRoute] int id)
 
         {
-            var guide = _guideRepo.GetById(id);
+            var guide = _guideService.GetById(id);
 
-            if (guide == null)
-            {
-                return NotFound("Guide not found");
-            }
-
-            return Ok(guide);
+            return guide;
         }
 
         // TODO: hacer los que faltan
