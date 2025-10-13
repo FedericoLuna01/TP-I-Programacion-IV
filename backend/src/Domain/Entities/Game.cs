@@ -16,5 +16,6 @@ namespace Domain.Entities
         // Relations
         public int UserId { get; set; }
         public User? User { get; set; }
+        public List<Guide> Guides { get; set; } = new List<Guide>();
     }
 }
