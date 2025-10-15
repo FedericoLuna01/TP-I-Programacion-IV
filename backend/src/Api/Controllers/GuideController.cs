@@ -32,7 +32,8 @@ namespace Api.Controllers
                 Difficulty = guideDto.Difficulty,
                 Image = guideDto.Image,
                 Tags = guideDto.Tags,
-                AuthorId = guideDto.AuthorId
+                AuthorId = guideDto.AuthorId,
+                GameId = guideDto.GameId
             };
 
             _guideService.Create(guide);

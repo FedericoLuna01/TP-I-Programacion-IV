@@ -22,6 +22,8 @@ namespace Api.Models.Guide
         [Required]
         List<string> Tags,
         [Required]
-        int AuthorId
+        int AuthorId,
+        [Required]
+        int GameId
     );
 }
