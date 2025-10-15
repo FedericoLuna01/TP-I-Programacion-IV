@@ -38,16 +38,11 @@ builder.Services.AddScoped<GuideService>();
 builder.Services.AddScoped<ScoreService>();
 builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
-var connection = new SqliteConnection("Data Source=GuideonDb.db");
-connection.Open();
-
-using (var command = connection.CreateCommand())
-{
-    command.CommandText = "PRAGMA journal_mode = DELETE;";
-    command.ExecuteNonQuery();
-}
-
-builder.Services.AddDbContext<ApplicationDbContext>(DbContextOptions => DbContextOptions.UseSqlite(connection));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite("Data Source=GuideonDb.db", sqliteOptions =>
+    {
+        sqliteOptions.CommandTimeout(30);
+    }));
 
 var app = builder.Build();
 

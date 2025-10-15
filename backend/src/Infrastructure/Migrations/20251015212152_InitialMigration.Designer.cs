@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250923022151_migration6")]
-    partial class migration6
+    [Migration("20251015212152_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,11 +103,11 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Difficulty")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("GameId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Rating")
                         .HasColumnType("TEXT");
 
                     b.PrimitiveCollection<string>("Tags")
@@ -121,6 +121,8 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
+
+                    b.HasIndex("GameId");
 
                     b.ToTable("Guides");
                 });
@@ -234,7 +236,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Game", "Game")
+                        .WithMany("Guides")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Author");
+
+                    b.Navigation("Game");
                 });
 
             modelBuilder.Entity("Domain.Entities.Score", b =>
@@ -254,6 +264,11 @@ namespace Infrastructure.Migrations
                     b.Navigation("Guide");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Game", b =>
+                {
+                    b.Navigation("Guides");
                 });
 
             modelBuilder.Entity("Domain.Entities.Guide", b =>
