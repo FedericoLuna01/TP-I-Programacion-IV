@@ -25,15 +25,12 @@ namespace Api.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateScoreRequest scoreDto)
         {
-            var score = new Score
-            {
-                ScoreValue = scoreDto.ScoreValue,
-                Comment = scoreDto.Comment,
-                UserId = scoreDto.UserId,
-                GuideId = scoreDto.GuideId
-            };
-
-            _scoreService.Create(score);
+            var score = _scoreService.Create(
+                scoreDto.ScoreValue,
+                scoreDto.Comment,
+                scoreDto.UserId,
+                scoreDto.GuideId
+            );
             return CreatedAtAction(nameof(GetById), new { id = score.Id }, score);
 
         }
