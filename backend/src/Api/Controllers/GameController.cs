@@ -24,18 +24,12 @@ namespace Api.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateGameRequest gameDto)
         {
-            // TODO: Preguntar si este mapeo lo tengo que hacer aca o en service
-            var newGame = new Game
-            {
-                Name = gameDto.Name,
-                Description = gameDto.Description,
-                Category = gameDto.Category,
-                Image = gameDto.Image,
-                UserId = gameDto.UserId
-            };
-
-            _gameService.Create(newGame);
-            return CreatedAtAction(nameof(GetById), new { id = newGame.Id }, newGame);
+            var createdGame = _gameService.Create(gameDto.Name,
+                gameDto.Description,
+                gameDto.Category,
+                gameDto.Image,
+                gameDto.UserId);
+            return CreatedAtAction(nameof(GetById), new { id = createdGame.Id }, createdGame);
         }
 
         [HttpGet]
@@ -55,7 +49,7 @@ namespace Api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete([FromRoute] int id)
         {
             _gameService.Delete(id);
             return NoContent();
@@ -63,16 +57,10 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public ActionResult<Game> UpdateGame([FromRoute] int id, UpdateGameRequest updateDto)
+        public ActionResult<Game> UpdateGame([FromRoute] int id, [FromBody] UpdateGameRequest updateDto)
         {
-            var game = new Game
-            {
-                Name = updateDto.Name,
-                Description = updateDto.Description,
-                Category = updateDto.Category,
-                Image = updateDto.Image
-            };
-            var updateGame = _gameService.Update(id, game);
+
+            var updateGame = _gameService.Update(id, updateDto.Name, updateDto.Description, updateDto.Category, updateDto.Image);
 
             return updateGame;
         }
