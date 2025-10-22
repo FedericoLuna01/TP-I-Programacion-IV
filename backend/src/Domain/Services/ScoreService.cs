@@ -17,8 +17,17 @@ namespace Domain.Services
             _scoreRepo = scoreRepo;
         }
 
-         public Score Create(Score score)
+         public Score Create(int scoreValue, string comment, int userId, int guideId)
         {
+            var score = new Score
+            {
+                ScoreValue = scoreValue,
+                Comment = comment,
+                UserId = userId,
+                GuideId = guideId
+            };
+
+
             return _scoreRepo.Create(score);
         }
 

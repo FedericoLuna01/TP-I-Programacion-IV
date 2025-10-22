@@ -24,20 +24,15 @@ namespace Api.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateGuideRequest guideDto)
         {
-            var guide = new Guide
-            {
-                Title = guideDto.Title,
-                Description = guideDto.Description,
-                Content = guideDto.Content,
-                Difficulty = guideDto.Difficulty,
-                Image = guideDto.Image,
-                Tags = guideDto.Tags,
-                AuthorId = guideDto.AuthorId,
-                GameId = guideDto.GameId
-            };
-
-            _guideService.Create(guide);
-
+            var guide = _guideService.Create(guideDto.Title,
+                guideDto.Content,
+                guideDto.Description,
+                guideDto.Difficulty,
+                guideDto.Image,
+                guideDto.Tags,
+                guideDto.AuthorId,
+                guideDto.GameId
+            );
             return CreatedAtAction(nameof(GetById), new { id = guide.Id }, guide);
         }
 
@@ -47,9 +42,6 @@ namespace Api.Controllers
             var guides = _guideService.GetAll();
             return Ok(guides);
         }
-
-        // Se puede hacer de las 2 formas
-        // [HttpGet("{id}")]
         [HttpGet]
         [Route("{id}")]
         public ActionResult<Guide> GetById([FromRoute] int id)

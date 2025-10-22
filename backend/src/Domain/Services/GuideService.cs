@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domain.Enums;
 using Domain.Interfaces;
 
 namespace Domain.Services
@@ -16,8 +17,20 @@ namespace Domain.Services
             _guideRepo = guideRepo;
         }
 
-        public Guide Create(Guide guide)
+        public Guide Create(string title, string description, string content,
+        DifficultyLevel difficulty, string image, List<string> tags, int authorId, int gameId)
         {
+            var guide = new Guide
+            {
+                Title = title,
+                Description = description,
+                Content = content,
+                Difficulty = difficulty,
+                Image = image,
+                Tags = tags,
+                AuthorId = authorId,
+                GameId = gameId
+            };
             return _guideRepo.Create(guide);
         }
 
