@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
@@ -15,9 +16,17 @@ namespace Domain.Services
             _gameRepo = gameRepository;
         }
 
-        public void Create(Game newGame)
+        public Game Create(string name, string description, string category, string image, int userId)
         {
-            _gameRepo.Create(newGame);
+            var newGame = new Game
+            {
+                Name = name,
+                Description = description,
+                Category = category,
+                Image = image,
+                UserId = userId
+            };
+            return _gameRepo.Create(newGame);
         }
 
         public IEnumerable<Game> GetAll()
@@ -35,9 +44,16 @@ namespace Domain.Services
             var game = _gameRepo.Delete(id) ?? throw new KeyNotFoundException($"Game with id {id} not found.");
         }
 
-        public Game Update(int id, Game updateGame)
+        public Game Update(int id, string name, string description, string category, string image)
         {
-            var updatedGame = _gameRepo.Update(id, updateGame) ?? throw new KeyNotFoundException($"Game with id {id} not found.");
+            var game = new Game
+            {
+                Name = name,
+                Description = description,
+                Category = category,
+                Image = image
+            };
+            var updatedGame = _gameRepo.Update(id, game) ?? throw new KeyNotFoundException($"Game with id {id} not found.");
             return updatedGame;
         }
 

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domain.Enums;
 using Domain.Exceptions;
 using Domain.Interfaces;
 
@@ -18,8 +19,15 @@ namespace Domain.Services
             _userRepo = userRepo;
         }
 
-        public User Create(User user)
+        public User Create(string email, UserRole role, string username, string password)
         {
+            var user = new User
+            {
+                Email = email,
+                Role = role,
+                Username = username,
+                PasswordHash = password
+            };
             _userRepo.Create(user);
             return user;
         }
@@ -41,8 +49,15 @@ namespace Domain.Services
             return user;
         }
 
-        public User Update( int id, User updateUser)
+        public User Update(int id, string avatar, string banner, UserRole role, string username)
         {
+            var updateUser = new User
+            {
+                Avatar = avatar,
+                Banner = banner,
+                Role = role,
+                Username = username
+            };
             var updatedUser = _userRepo.Update(id, updateUser) ?? throw new UserNotFoundException();
             return updatedUser;
         }
