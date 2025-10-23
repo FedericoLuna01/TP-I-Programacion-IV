@@ -51,5 +51,29 @@ namespace Infrastructure.Repositories
 
             return guide;
         }
+
+        public Guide Update(int id, Guide updateGuide)
+        {
+            var guideToUpdate = _context.Guides.Find(id) ?? throw new KeyNotFoundException($"Guide {id} not found");
+
+            guideToUpdate.Title = updateGuide.Title;
+            guideToUpdate.Description = updateGuide.Description;
+            guideToUpdate.Content = updateGuide.Content;
+            guideToUpdate.Difficulty = updateGuide.Difficulty;
+            guideToUpdate.Image = updateGuide.Image;
+            guideToUpdate.Tags = updateGuide.Tags;
+
+            _context.SaveChanges();
+            return guideToUpdate;
+        }
+        
+        public Guide Delete(int id)
+        {
+            var guide = _context.Guides.Find(id) ?? throw new KeyNotFoundException($"Guide {id} not found");
+
+            _context.Guides.Remove(guide);
+            _context.SaveChanges();
+            return guide;
+        }
     }
 }

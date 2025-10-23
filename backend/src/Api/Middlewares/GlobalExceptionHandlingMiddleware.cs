@@ -62,6 +62,28 @@ public class GlobalExceptionHandlingMiddleware : IMiddleware
             await context.Response.WriteAsync(json);
 
         }
+        catch (KeyNotFoundException ex)
+        {
+            _logger.LogError(ex, ex.Message);
+
+            int statusCode = (int)HttpStatusCode.NotFound;
+
+            ProblemDetails problem = new()
+            {
+                Status = statusCode,
+                Type = "https://guideonapi/errors/notfound",
+                Title = "Not found error",
+                Detail = ex.Message
+            };
+
+            string json = JsonSerializer.Serialize(problem);
+
+            context.Response.StatusCode = statusCode;
+            context.Response.ContentType = "application/json";
+
+            await context.Response.WriteAsync(json);
+        }
+
         catch (Exception ex)
         {
             _logger.LogError(ex, ex.Message);
