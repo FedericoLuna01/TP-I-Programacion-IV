@@ -11,5 +11,7 @@ namespace Domain.Interfaces
         Guide Create(Guide guide);
         List<Guide> GetAll();
         Guide? GetById(int id);
+        Guide Update(int id, Guide guide);
+        Guide Delete(int id);
     }
 }

@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.Enums;
 
 namespace Api.Models.Guide
 {
-    public record UpdateGameRequest
+    public record UpdateGuideRequest
     (
         [Required]
-        string Name,
+        string Title,
         [Required]
         string Description,
         [Required]
-        string Category,
+        string Content,
         [Required]
-        string Image
+        DifficultyLevel Difficulty,
+        [Required]
+        string Image,
+        [Required]
+        List<string> Tags
     );
         
-    
+
 }

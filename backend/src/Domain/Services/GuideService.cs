@@ -41,7 +41,28 @@ namespace Domain.Services
 
         public Guide GetById(int id)
         {
-            return _guideRepo.GetById(id) ?? throw new KeyNotFoundException($"Guide with id ${id} not found");
+            return _guideRepo.GetById(id) ?? throw new KeyNotFoundException($"Guide with id {id} not found");
         }
+
+        public Guide Update(int id, string title, string description, string content, DifficultyLevel difficulty, string image, List<string> tags)
+        {
+            var guide = new Guide
+            {
+                Title = title,
+                Description = description,
+                Content = content,
+                Difficulty = difficulty,
+                Image = image,
+                Tags = tags
+            };
+            var updateGuide = _guideRepo.Update(id, guide) ?? throw new KeyNotFoundException($"Guide with id {id} not found.");
+            return updateGuide;
+        }
+
+        public void Delete(int id)
+        {
+            var guide = _guideRepo.Delete(id) ?? throw new KeyNotFoundException($"Guide with id {id} not found");
+        }
+
     }
 }

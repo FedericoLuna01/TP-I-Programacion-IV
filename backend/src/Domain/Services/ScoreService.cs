@@ -40,5 +40,7 @@ namespace Domain.Services
         {
             return _scoreRepo.GetById(id) ?? throw new KeyNotFoundException($"Score with id ${id} not found");
         }
+
+        // Hacer PUT Y DELETE
     }
 }
