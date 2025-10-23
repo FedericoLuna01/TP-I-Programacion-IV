@@ -27,7 +27,6 @@ namespace Domain.Services
                 GuideId = guideId
             };
 
-
             return _scoreRepo.Create(score);
         }
 
@@ -38,9 +37,21 @@ namespace Domain.Services
 
         public Score GetById(int id)
         {
-            return _scoreRepo.GetById(id) ?? throw new KeyNotFoundException($"Score with id ${id} not found");
+            return _scoreRepo.GetById(id) ?? throw new KeyNotFoundException($"Score with id {id} not found");
         }
 
-        // Hacer PUT Y DELETE
+        public Score Update(int id, string comment)
+        {
+            var score = new Score
+            {
+                Comment = comment
+            };
+            return _scoreRepo.Update(id, score) ?? throw new KeyNotFoundException($"Score with id {id} not found");
+        }
+
+        public void Delete(int id)
+        {
+            _scoreRepo.Delete(id);
+        }
     }
 }

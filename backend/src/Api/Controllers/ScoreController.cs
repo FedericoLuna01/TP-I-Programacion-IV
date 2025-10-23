@@ -31,8 +31,8 @@ namespace Api.Controllers
                 scoreDto.UserId,
                 scoreDto.GuideId
             );
+            
             return CreatedAtAction(nameof(GetById), new { id = score.Id }, score);
-
         }
 
         [HttpGet]
@@ -44,19 +44,26 @@ namespace Api.Controllers
             return score;
         }
 
+        [HttpPut]
+        [Route("{id}")]
+        public ActionResult<Score> Update([FromRoute] int id, [FromBody] UpdateScoreRequest scoreDto)
+        {
+            var score = _scoreService.Update(
+                id,
+                scoreDto.Comment
+            );
 
+            return score;
+        }
 
-        // [HttpPut]
-        // public IActionResult Update([FromBody] UpdateScoreRequest scoreDto)
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            _scoreService.Delete(id);
 
+            return NoContent();
+        }
 
-
-        // [HttpGet]
-        // public ActionResult<IEnumerable<Guide>> GetAll()
-        // {
-            
-        // }
-
-        // TODO: hacer los que faltan
     }
 }

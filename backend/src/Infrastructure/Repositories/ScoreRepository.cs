@@ -42,9 +42,11 @@ namespace Infrastructure.Repositories
             return createScore;
         }
 
-        public Score? Delete(int id)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var score = _context.Scores.Find(id) ?? throw new KeyNotFoundException($"Score with id {id} not found");
+            _context.Scores.Remove(score);
+            _context.SaveChanges();
         }
 
         public List<Score> GetAll()
@@ -59,12 +61,18 @@ namespace Infrastructure.Repositories
 
         public Score? GetById(int id)
         {
-            throw new NotImplementedException();
+            return  _context.Scores.Find(id) ?? throw new KeyNotFoundException($"Score with id ${id} not found");
         }
 
-        public Score? Update(int id, Score updateScore)
+        public Score Update(int id, Score updateScore)
         {
-            throw new NotImplementedException();
+            var score = _context.Scores.Find(id) ?? throw new KeyNotFoundException($"Score with id ${id} not found");
+
+            score.Comment = updateScore.Comment;
+
+            _context.SaveChanges();
+
+            return score;
         }
     }
 }
