@@ -12,7 +12,7 @@ namespace Domain.Interfaces
         List<Score> GetAll();
         Score? GetById(int id);
         Score? GetByGuide(int guideId);
-        Score? Delete(int id);
-        Score? Update(int id, Score updateScore);
+        void Delete(int id);
+        Score Update(int id, Score updateScore);
     }
 }
