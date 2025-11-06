@@ -6,7 +6,7 @@ using Domain.Entities;
 using Domain.Enums;
 using Domain.Interfaces;
 
-namespace Domain.Services
+namespace Application.Services
 {
     public class GuideService
     {
