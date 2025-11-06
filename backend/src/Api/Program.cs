@@ -2,9 +2,9 @@ using Domain.Interfaces;
 using Domain.Services;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Web.Middleware;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,10 +39,15 @@ builder.Services.AddScoped<ScoreService>();
 builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite("Data Source=GuideonDb.db", sqliteOptions =>
-    {
-        sqliteOptions.CommandTimeout(30);
-    }));
+    options.UseMySql(
+        "server=localhost;database=guideon;user=root;password=123456789;",
+        new MySqlServerVersion(new Version(8, 0, 33)),
+        mysqlOptions =>
+        {
+            mysqlOptions.CommandTimeout(30);
+        }
+    )
+);
 
 var app = builder.Build();
 
