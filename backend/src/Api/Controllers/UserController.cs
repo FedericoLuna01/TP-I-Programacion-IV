@@ -6,7 +6,7 @@ using Api.Models.Users;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Interfaces;
-using Domain.Services;
+using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers

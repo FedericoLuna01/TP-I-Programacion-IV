@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Domain.Entities;
 using Domain.Interfaces;
 
-namespace Domain.Services
+namespace Application.Services
 {
     public class ScoreService
     {
