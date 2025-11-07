@@ -1,77 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using Domain.Entities;
-using Domain.Exceptions;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-
         private readonly ApplicationDbContext _context;
 
-        public UserRepository(ApplicationDbContext dbContext)
+        public UserRepository(ApplicationDbContext context) : base(context)
         {
-            _context = dbContext;
-        }
-
-        public User Create(User user)
-        {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            return user;
-        }
-
-        public bool Delete(int id)
-        {
-            var user = _context.Users.Find(id);
-            if (user == null) throw new UserNotFoundException();
-
-            _context.Users.Remove(user);
-            _context.SaveChanges();
-
-            return true;
-        }
-
-        public IEnumerable<User> GetAll()
-        {
-            var users = _context.Users.ToList();
-            return users;
-        }
-
-        public User? GetById(int id)
-        {
-            var user = _context.Users.Find(id);
-            return user;
-        }
-
-        public User? Update(int id, User updateUser)
-        {
-            var user = _context.Users.Find(id);
-
-            if (user == null) throw new UserNotFoundException();
-
-            user.Avatar = updateUser.Avatar;
-            user.Banner = updateUser.Banner;
-            user.UpdatedAt = DateTime.UtcNow;
-            user.Role = updateUser.Role;
-            user.Username = updateUser.Username;
-
-            _context.SaveChanges();
-
-            return user;
+            _context = context;
         }
 
         public User? Validate(string email, string password)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.PasswordHash == password);
-
-            return user;
+            return _context.Users.FirstOrDefault(u => u.Email == email && u.PasswordHash == password);
         }
 
         public User? GetByEmail(string email)

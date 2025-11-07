@@ -1,17 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    public interface IGameRepository
+    public interface IGameRepository : IGenericRepository<Game>
     {
-        Game Create(Game createGame);
-        List<Game> GetAll();
-        Game? GetById(int id);
-        Game? Delete(int id);
-        Game? Update(int id, Game updateGame);
+
     }
 }
