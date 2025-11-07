@@ -6,13 +6,15 @@ using Api.Models.Game;
 using Api.Models.Guide;
 using Domain.Entities;
 using Domain.Interfaces;
-using Application.Services;
+using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [ApiController]
     [Route("api/game")]
+    [Authorize]
     public class GameController : ControllerBase
     {
         private readonly GameService _gameService;

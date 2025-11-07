@@ -84,6 +84,48 @@ public class GlobalExceptionHandlingMiddleware : IMiddleware
             await context.Response.WriteAsync(json);
         }
 
+        catch (InvalidCredentialsException ex)
+        {
+            _logger.LogError(ex, ex.Message);
+
+            int statusCode = (int)HttpStatusCode.Unauthorized;
+
+            ProblemDetails problem = new()
+            {
+                Status = statusCode,
+                Type = "https://guideonapi/errors/unauthorized",
+                Title = "Unauthorized",
+                Detail = ex.Message
+            };
+
+            string json = JsonSerializer.Serialize(problem);
+
+            context.Response.StatusCode = statusCode;
+            context.Response.ContentType = "application/json";
+
+            await context.Response.WriteAsync(json);
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            _logger.LogError(ex, ex.Message);
+
+            int statusCode = (int)HttpStatusCode.Unauthorized;
+
+            ProblemDetails problem = new()
+            {
+                Status = statusCode,
+                Type = "https://guideonapi/errors/unauthorized",
+                Title = "Unauthorized",
+                Detail = ex.Message
+            };
+
+            string json = JsonSerializer.Serialize(problem);
+
+            context.Response.StatusCode = statusCode;
+            context.Response.ContentType = "application/json";
+
+            await context.Response.WriteAsync(json);
+        }
         catch (Exception ex)
         {
             _logger.LogError(ex, ex.Message);

@@ -66,5 +66,17 @@ namespace Infrastructure.Repositories
 
             return user;
         }
+
+        public User? Validate(string email, string password)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.PasswordHash == password);
+
+            return user;
+        }
+
+        public User? GetByEmail(string email)
+        {
+            return _context.Users.FirstOrDefault(u => u.Email == email);
+        }
     }
 }

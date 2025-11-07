@@ -6,6 +6,7 @@ using Api.Models.Guide;
 using Api.Models.Score;
 using Domain.Entities;
 using Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/score")]
+    [Authorize]
     public class ScoreController : ControllerBase
     {
         private readonly ScoreService _scoreService;
@@ -31,7 +33,7 @@ namespace Api.Controllers
                 scoreDto.UserId,
                 scoreDto.GuideId
             );
-            
+
             return CreatedAtAction(nameof(GetById), new { id = score.Id }, score);
         }
 

@@ -18,7 +18,6 @@ namespace Domain.Entities
         public string Banner { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-        // TODO: Hacer una tabla followers
         public int Followers { get; set; } = 0;
         public UserRole Role { get; set; } = UserRole.User;
 
