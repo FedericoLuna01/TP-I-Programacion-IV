@@ -7,12 +7,14 @@ using Api.Models.Score;
 using Domain.Entities;
 using Domain.Interfaces;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [ApiController]
     [Route("api/guide")]
+    [Authorize]
     public class GuideController : ControllerBase
     {
         private readonly GuideService _guideService;
@@ -53,8 +55,6 @@ namespace Api.Controllers
             return guide;
         }
 
-        // TODO: hacer los que faltan PUT Y DELETE
-
         [HttpPut]
         [Route("{id}")]
         public ActionResult<Guide> Update([FromRoute] int id, [FromBody] UpdateGuideRequest updateDto)
@@ -65,7 +65,7 @@ namespace Api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult Delete([FromRoute]int id)
+        public IActionResult Delete([FromRoute] int id)
         {
             _guideService.Delete(id);
             return NoContent();

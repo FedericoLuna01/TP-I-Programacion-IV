@@ -13,5 +13,7 @@ namespace Domain.Interfaces
         User? GetById(int id);
         bool Delete(int id);
         User? Update(int id, User updateUser);
+        User? Validate(string email, string password);
+        User? GetByEmail(string email);
     }
 }

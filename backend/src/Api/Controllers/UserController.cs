@@ -7,6 +7,7 @@ using Domain.Entities;
 using Domain.Enums;
 using Domain.Interfaces;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -30,8 +31,8 @@ namespace Api.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createdUser.Id }, createdUser);
         }
 
-
         [HttpGet]
+        [Authorize]
         public ActionResult<List<UserDto>> GetAll()
         {
             var users = _userService.GetAll();
@@ -40,6 +41,7 @@ namespace Api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _userService.Delete(id);
