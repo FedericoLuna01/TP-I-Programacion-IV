@@ -6,8 +6,8 @@ using Api.Models.Guide;
 using Api.Models.Score;
 using Domain.Entities;
 using Domain.Interfaces;
-using Domain.Services;
 using Microsoft.AspNetCore.Authorization;
+using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers

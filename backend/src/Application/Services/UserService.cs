@@ -8,7 +8,7 @@ using Domain.Enums;
 using Domain.Exceptions;
 using Domain.Interfaces;
 
-namespace Domain.Services
+namespace Application.Services
 {
     public class UserService
     {

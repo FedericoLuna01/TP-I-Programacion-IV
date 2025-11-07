@@ -1,5 +1,6 @@
 using Domain.Interfaces;
-using Domain.Services;
+using Application.Services;
+using Application.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Application.Services;
@@ -11,6 +12,10 @@ using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+using Web.Middleware;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Api.Clients;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +30,6 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -97,22 +101,37 @@ builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
 builder.Services.Configure<AuthenticationSettings>(builder.Configuration.GetSection("AuthenticationService"));
 
+builder.Services.AddHttpClient<Application.Interfaces.IFreeToGameClient, FreeToGameClient>(client =>
+{
+    client.BaseAddress = new Uri("https://www.freetogame.com");
+    client.Timeout = TimeSpan.FromSeconds(30);
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+    client.DefaultRequestHeaders.Add("User-Agent", "Guideon-App");
+});
+
+
+builder.Services.AddScoped<Application.Interfaces.IFreeToGameService, FreeToGameService>();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite("Data Source=GuideonDb.db", sqliteOptions =>
-    {
-        sqliteOptions.CommandTimeout(30);
-    }));
+    options.UseMySql(
+        "server=localhost;database=guideon;user=root;password=123456789;",
+        new MySqlServerVersion(new Version(8, 0, 33)),
+        mysqlOptions =>
+        {
+            mysqlOptions.CommandTimeout(30);
+        }
+    )
+);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Usar la política de CORS antes de redirección y autorización
+
 app.UseCors("AllowFrontend");
 
 app.UseHttpsRedirection();
