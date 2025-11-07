@@ -114,7 +114,7 @@ builder.Services.AddScoped<Application.Interfaces.IFreeToGameService, FreeToGame
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
-        "server=localhost;database=guideon;user=root;password=123456789;",
+        builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 33)),
         mysqlOptions =>
         {
@@ -124,6 +124,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 );
 
 var app = builder.Build();
+
+// Apply migrations
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+}
 
 if (app.Environment.IsDevelopment())
 {
