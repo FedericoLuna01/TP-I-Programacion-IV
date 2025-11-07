@@ -1,10 +1,12 @@
 using Domain.Interfaces;
 using Application.Services;
+using Application.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Web.Middleware;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Api.Clients;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +21,6 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -38,6 +39,18 @@ builder.Services.AddScoped<GuideService>();
 builder.Services.AddScoped<ScoreService>();
 builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
+
+builder.Services.AddHttpClient<Application.Interfaces.IFreeToGameClient, FreeToGameClient>(client =>
+{
+    client.BaseAddress = new Uri("https://www.freetogame.com");
+    client.Timeout = TimeSpan.FromSeconds(30);
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+    client.DefaultRequestHeaders.Add("User-Agent", "Guideon-App");
+});
+
+
+builder.Services.AddScoped<Application.Interfaces.IFreeToGameService, FreeToGameService>();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
         "server=localhost;database=guideon;user=root;password=123456789;",
@@ -51,14 +64,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Usar la política de CORS antes de redirección y autorización
+
 app.UseCors("AllowFrontend");
 
 app.UseHttpsRedirection();
