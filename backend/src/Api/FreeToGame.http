@@ -1,0 +1,154 @@
+### FreeToGame API - Ejemplos de uso
+@baseUrl = https://localhost:7000
+@baseUrlHttp = http://localhost:5000
+
+###
+# 1. Obtener todos los juegos free-to-play
+GET {{baseUrl}}/api/freetogame
+Accept: application/json
+
+###
+# 2. Obtener un juego específico por ID (ejemplo: Overwatch 2)
+GET {{baseUrl}}/api/freetogame/540
+Accept: application/json
+
+###
+# 3. Obtener juegos por categoría - MMORPG
+GET {{baseUrl}}/api/freetogame/category/mmorpg
+Accept: application/json
+
+###
+# 4. Obtener juegos por categoría - Shooter
+GET {{baseUrl}}/api/freetogame/category/shooter
+Accept: application/json
+
+###
+# 5. Obtener juegos por categoría - Battle Royale
+GET {{baseUrl}}/api/freetogame/category/battle-royale
+Accept: application/json
+
+###
+# 6. Obtener juegos por plataforma - PC
+GET {{baseUrl}}/api/freetogame/platform/pc
+Accept: application/json
+
+###
+# 7. Obtener juegos por plataforma - Browser
+GET {{baseUrl}}/api/freetogame/platform/browser
+Accept: application/json
+
+###
+# 8. Obtener juegos por plataforma - Todos
+GET {{baseUrl}}/api/freetogame/platform/all
+Accept: application/json
+
+###
+# 9. Obtener juegos ordenados por fecha de lanzamiento
+GET {{baseUrl}}/api/freetogame/sorted/release-date
+Accept: application/json
+
+###
+# 10. Obtener juegos ordenados alfabéticamente
+GET {{baseUrl}}/api/freetogame/sorted/alphabetical
+Accept: application/json
+
+###
+# 11. Obtener juegos ordenados por popularidad
+GET {{baseUrl}}/api/freetogame/sorted/popularity
+Accept: application/json
+
+###
+# 12. Obtener juegos ordenados por relevancia
+GET {{baseUrl}}/api/freetogame/sorted/relevance
+Accept: application/json
+
+###
+# 13. Filtros combinados: PC + MMORPG
+GET {{baseUrl}}/api/freetogame/filtered?platform=pc&category=mmorpg
+Accept: application/json
+
+###
+# 14. Filtros combinados: Browser + Shooter + Ordenado por release-date
+GET {{baseUrl}}/api/freetogame/filtered?platform=browser&category=shooter&sortBy=release-date
+Accept: application/json
+
+###
+# 15. Filtros combinados: PC + MOBA + Alfabético
+GET {{baseUrl}}/api/freetogame/filtered?platform=pc&category=moba&sortBy=alphabetical
+Accept: application/json
+
+###
+# 16. Solo ordenado por popularidad (sin filtros de plataforma/categoría)
+GET {{baseUrl}}/api/freetogame/filtered?sortBy=popularity
+Accept: application/json
+
+###
+# 17. Solo categoría Racing
+GET {{baseUrl}}/api/freetogame/filtered?category=racing
+Accept: application/json
+
+###
+# 18. Categorías populares - Strategy
+GET {{baseUrl}}/api/freetogame/category/strategy
+Accept: application/json
+
+###
+# 19. Categorías populares - Card Games
+GET {{baseUrl}}/api/freetogame/category/card
+Accept: application/json
+
+###
+# 20. Categorías populares - Sports
+GET {{baseUrl}}/api/freetogame/category/sports
+Accept: application/json
+
+###
+# 21. Categorías de estilo - Anime
+GET {{baseUrl}}/api/freetogame/category/anime
+Accept: application/json
+
+###
+# 22. Categorías de estilo - Fantasy
+GET {{baseUrl}}/api/freetogame/category/fantasy
+Accept: application/json
+
+###
+# 23. Categorías de estilo - Sci-Fi
+GET {{baseUrl}}/api/freetogame/category/sci-fi
+Accept: application/json
+
+###
+# 24. Categorías de gameplay - Survival
+GET {{baseUrl}}/api/freetogame/category/survival
+Accept: application/json
+
+###
+# 25. Categorías de gameplay - PvP
+GET {{baseUrl}}/api/freetogame/category/pvp
+Accept: application/json
+
+###
+# 26. Test con HTTP (no HTTPS)
+GET {{baseUrlHttp}}/api/freetogame
+Accept: application/json
+
+###
+# Categorías disponibles:
+# - mmorpg, shooter, strategy, moba, racing, sports, social, sandbox
+# - open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based
+# - first-person, third-person, top-down, tank, space, sailing
+# - side-scroller, superhero, permadeath, card, battle-royale
+# - mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting
+# - action-rpg, action, military, martial-arts, flight, low-spec
+# - tower-defense, horror, mmorts
+
+# Plataformas disponibles:
+# - pc: PC (Windows)
+# - browser: Web Browser
+# - all: Todas las plataformas
+
+# Opciones de ordenamiento:
+# - release-date: Por fecha de lanzamiento
+# - popularity: Por popularidad
+# - alphabetical: Orden alfabético
+# - relevance: Por relevancia
