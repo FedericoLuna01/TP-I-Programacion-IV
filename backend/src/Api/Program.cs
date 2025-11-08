@@ -126,11 +126,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 var app = builder.Build();
 
 // #region Apply EF migrations
-using (var serviceScope = app.Services.CreateScope())
-{
-    var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.Migrate();
-}
+// using (var serviceScope = app.Services.CreateScope())
+// {
+//     var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+//     dbContext.Database.Migrate();
+// }
 // #endregion
 
 if (app.Environment.IsDevelopment())
