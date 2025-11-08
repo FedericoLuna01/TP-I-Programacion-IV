@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
 
-namespace Api.Models.Score
+namespace Application.Dtos.Score
 {
     public record CreateScoreRequest
     (
@@ -16,6 +16,6 @@ namespace Api.Models.Score
         [Required]
         int UserId,
         [Required]
-        int GuideId   
+        int GuideId
     );
 }

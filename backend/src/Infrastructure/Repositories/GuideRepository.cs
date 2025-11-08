@@ -7,11 +7,9 @@ namespace Infrastructure.Repositories
 {
     public class GuideRepository : GenericRepository<Guide>, IGuideRepository
     {
-        private readonly ApplicationDbContext _context;
 
         public GuideRepository(ApplicationDbContext context) : base(context)
         {
-            _context = context;
         }
 
         public override Guide Create(Guide guide)
@@ -27,6 +25,8 @@ namespace Infrastructure.Repositories
 
             _context.Guides.Add(guide);
             _context.SaveChanges();
+            _context.Entry(guide).Reference(g => g.Author).Load();
+
             return guide;
         }
 
@@ -36,5 +36,32 @@ namespace Infrastructure.Repositories
                 .Include(g => g.Author)
                 .ToList();
         }
+
+        public override Guide? GetById(object id)
+        {
+            return _context.Guides
+                .Include(g => g.Author)
+                .FirstOrDefault(g => g.Id.Equals(id));
+        }
+
+        public override Guide? Update(object id, Guide updateGuide)
+        {
+            var guide = _context.Guides.Find(id);
+            if (guide == null) return null;
+
+            guide.Title = updateGuide.Title;
+            guide.Description = updateGuide.Description;
+            guide.Content = updateGuide.Content;
+            guide.Difficulty = updateGuide.Difficulty;
+            guide.Image = updateGuide.Image;
+            guide.Tags = updateGuide.Tags;
+
+            _context.SaveChanges();
+            _context.Entry(guide).Reference(g => g.Author).Load();
+            _context.Entry(guide).Reference(g => g.Game).Load();
+
+            return guide;
+        }
+
     }
 }

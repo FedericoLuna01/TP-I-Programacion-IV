@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain.Enums;
 
-namespace Api.Models.Guide
+namespace Application.Dtos.Guide
 {
     public record UpdateGuideRequest
     (
@@ -22,6 +22,6 @@ namespace Api.Models.Guide
         [Required]
         List<string> Tags
     );
-        
+
 
 }

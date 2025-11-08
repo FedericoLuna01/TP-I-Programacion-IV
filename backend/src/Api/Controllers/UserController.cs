@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Models.Users;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
+using Application.Dtos.Users;
 
 namespace Api.Controllers
 {
@@ -23,6 +23,7 @@ namespace Api.Controllers
         {
             _userService = userService;
         }
+
 
         [HttpPost]
         public IActionResult Create([FromBody] CreateUserRequest userDto)

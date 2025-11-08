@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.DTOs.Guide;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Interfaces;
@@ -17,7 +18,7 @@ namespace Application.Services
             _guideRepo = guideRepo;
         }
 
-        public Guide Create(string title, string description, string content,
+        public GuideDto Create(string title, string description, string content,
         DifficultyLevel difficulty, string image, List<string> tags, int authorId, int gameId)
         {
             var guide = new Guide
@@ -31,33 +32,44 @@ namespace Application.Services
                 AuthorId = authorId,
                 GameId = gameId
             };
-            return _guideRepo.Create(guide);
+
+            var createdGuide = _guideRepo.Create(guide);
+
+            return GuideDto.Create(createdGuide);
         }
 
-        public IEnumerable<Guide> GetAll()
+        public IEnumerable<GuideDto> GetAll()
         {
             var guides = _guideRepo.GetAll();
-            return guides;
+            return GuideDto.Create(guides);
         }
 
-        public Guide GetById(int id)
+        public GuideDto GetById(int id)
         {
-            return _guideRepo.GetById(id) ?? throw new KeyNotFoundException($"Guide with id {id} not found");
+            var guide = _guideRepo.GetById(id) ?? throw new KeyNotFoundException($"Guide with id {id} not found");
+            return GuideDto.Create(guide);
         }
 
-        public Guide Update(int id, string title, string description, string content, DifficultyLevel difficulty, string image, List<string> tags)
+        public GuideDto Update(int id, string title, string description, string content, DifficultyLevel difficulty, string image, List<string> tags)
         {
+            var existingGuide = _guideRepo.GetById(id);
+            if (existingGuide == null) throw new KeyNotFoundException($"Guide with id {id} not found");
+
             var guide = new Guide
             {
+                Id = id,
                 Title = title,
                 Description = description,
                 Content = content,
                 Difficulty = difficulty,
                 Image = image,
-                Tags = tags
+                Tags = tags,
+                AuthorId = existingGuide.AuthorId,
+                GameId = existingGuide.GameId,
+                CreatedAt = existingGuide.CreatedAt
             };
             var updateGuide = _guideRepo.Update(id, guide) ?? throw new KeyNotFoundException($"Guide with id {id} not found.");
-            return updateGuide;
+            return GuideDto.Create(updateGuide);
         }
 
         public void Delete(int id)

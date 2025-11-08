@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using Infrastructure.Configuration;
 using Domain.Interfaces;
 using Domain.Entities;
+using Application.Dtos.Users;
 
 namespace Application.Services
 {
@@ -67,7 +68,7 @@ namespace Application.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public User Register(string email, string password, string username)
+        public UserDto Register(string email, string password, string username)
         {
             if (string.IsNullOrWhiteSpace(email))
                 throw new ArgumentNullException(nameof(email));
@@ -86,7 +87,7 @@ namespace Application.Services
 
             var createdUser = _userRepo.Create(newUser);
 
-            return createdUser;
+            return UserDto.Create(createdUser);
         }
 
         private static string HashPassword(string password)

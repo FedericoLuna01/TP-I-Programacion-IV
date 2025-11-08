@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Dtos.Users;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Exceptions;
@@ -19,10 +20,10 @@ namespace Application.Services
             _userRepo = userRepo;
         }
 
-        public User Create(string email, UserRole role, string username, string password)
+        public UserDto Create(string email, UserRole role, string username, string password)
         {
             var hashedPassword = HashPassword(password);
-            
+
             var user = new User
             {
                 Email = email,
@@ -31,12 +32,13 @@ namespace Application.Services
                 PasswordHash = hashedPassword
             };
             _userRepo.Create(user);
-            return user;
+            return UserDto.Create(user);
         }
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<UserDto> GetAll()
         {
-            return _userRepo.GetAll();
+            var users = _userRepo.GetAll();
+            return UserDto.Create(users);
         }
 
         public void Delete(int id)
@@ -44,14 +46,14 @@ namespace Application.Services
             _userRepo.Delete(id);
         }
 
-        public User GetById(int id)
+        public UserDto GetById(int id)
         {
             var user = _userRepo.GetById(id) ?? throw new UserNotFoundException();
 
-            return user;
+            return UserDto.Create(user);
         }
 
-        public User Update(int id, string avatar, string banner, UserRole role, string username)
+        public UserDto Update(int id, string avatar, string banner, UserRole role, string username)
         {
             var updateUser = new User
             {
@@ -61,7 +63,7 @@ namespace Application.Services
                 Username = username
             };
             var updatedUser = _userRepo.Update(id, updateUser) ?? throw new UserNotFoundException();
-            return updatedUser;
+            return UserDto.Create(updatedUser);
         }
 
         private static string HashPassword(string password)

@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Api.Models.Users
+namespace Application.Dtos.Users
 {
-    public record LoginUserRequest
+    public record RegisterUserRequest
     (
         [EmailAddress]
         string Email,
+        [Required]
+        string Username,
         [Required]
         string Password
     );

@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Api.Models.Game
+namespace Application.Dtos.Game
 {
-    public record CreateGameRequest
+    public record UpdateGameRequest
     (
         [Required]
         string Name,
@@ -15,8 +15,6 @@ namespace Api.Models.Game
         [Required]
         string Category,
         [Required]
-        string Image,
-        [Required]
-        int UserId
+        string Image
     );
 }
