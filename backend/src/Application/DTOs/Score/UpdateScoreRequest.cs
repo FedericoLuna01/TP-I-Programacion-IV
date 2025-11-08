@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Api.Models.Score
+namespace Application.Dtos.Score
 {
     public record UpdateScoreRequest
     (

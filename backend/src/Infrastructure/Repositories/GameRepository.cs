@@ -24,6 +24,7 @@ namespace Infrastructure.Repositories
 
             _dbSet.Add(createGame);
             _context.SaveChanges();
+            _context.Entry(createGame).Reference(g => g.User).Load();
             return createGame;
         }
 
@@ -38,7 +39,18 @@ namespace Infrastructure.Repositories
             game.Image = updateGame.Image;
 
             _context.SaveChanges();
+
             return game;
+        }
+
+        public override List<Game> GetAll()
+        {
+            return _dbSet.Include(g => g.User).ToList();
+        }
+
+        public override Game? GetById(object id)
+        {
+            return _dbSet.Include(g => g.User).FirstOrDefault(g => g.Id.Equals(id));
         }
     }
 }

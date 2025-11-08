@@ -49,7 +49,19 @@ namespace Infrastructure.Repositories
             var existing = _dbSet.Find(id);
             if (existing == null) return null;
 
-            _context.Entry(existing).CurrentValues.SetValues(entity);
+            var entityType = _context.Model.FindEntityType(typeof(T));
+            var keyProperty = entityType.FindPrimaryKey()?.Properties.FirstOrDefault();
+            var keyName = keyProperty?.Name;
+
+            foreach (var property in entityType.GetProperties())
+            {
+                if (property.Name != keyName)
+                {
+                    var value = _context.Entry(entity).Property(property.Name).CurrentValue;
+                    _context.Entry(existing).Property(property.Name).CurrentValue = value;
+                }
+            }
+
             _context.SaveChanges();
             return existing;
         }

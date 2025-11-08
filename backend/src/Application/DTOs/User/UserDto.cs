@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Domain.Enums;
 using Domain.Entities;
 
-namespace Api.Models.Users
+namespace Application.Dtos.Users
 {
     public record UserDto(string Email, string Username, UserRole Role, int Id, string Avatar, string Banner)
     {

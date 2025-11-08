@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain.Enums;
 
-namespace Api.Models.Users
+namespace Application.Dtos.Users
 {
     public record CreateUserRequest
     (

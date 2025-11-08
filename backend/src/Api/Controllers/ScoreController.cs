@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Models.Guide;
-using Api.Models.Score;
-using Domain.Entities;
-using Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
+using Application.DTOs.Score;
+using Application.Dtos.Score;
 
 namespace Api.Controllers
 {
@@ -39,7 +37,7 @@ namespace Api.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<Score> GetById([FromRoute] int id)
+        public ActionResult<ScoreDto> GetById([FromRoute] int id)
         {
             var score = _scoreService.GetById(id);
 
@@ -49,7 +47,7 @@ namespace Api.Controllers
         [HttpPut]
         [Route("{id}")]
         [Authorize]
-        public ActionResult<Score> Update([FromRoute] int id, [FromBody] UpdateScoreRequest scoreDto)
+        public ActionResult<ScoreDto> Update([FromRoute] int id, [FromBody] UpdateScoreRequest scoreDto)
         {
             var score = _scoreService.Update(
                 id,

@@ -1,10 +1,9 @@
-using Api.Models.Game;
-using Api.Models.Guide;
 using Domain.Entities;
 using Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using Application.Dtos.Game;
+using Application.DTOs.Game;
 namespace Api.Controllers
 {
     [ApiController]
@@ -30,14 +29,14 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Game>> GetAll()
+        public ActionResult<IEnumerable<GameDto>> GetAll()
         {
             var games = _gameService.GetAll();
             return Ok(games);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Game> GetById([FromRoute] int id)
+        public ActionResult<GameDto> GetById([FromRoute] int id)
         {
             var game = _gameService.GetById(id);
 
@@ -56,7 +55,7 @@ namespace Api.Controllers
         [HttpPut]
         [Authorize]
         [Route("{id}")]
-        public ActionResult<Game> UpdateGame([FromRoute] int id, [FromBody] UpdateGameRequest updateDto)
+        public ActionResult<GameDto> UpdateGame([FromRoute] int id, [FromBody] UpdateGameRequest updateDto)
         {
 
             var updateGame = _gameService.Update(id, updateDto.Name, updateDto.Description, updateDto.Category, updateDto.Image);

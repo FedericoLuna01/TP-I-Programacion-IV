@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.DTOs.Game;
 using Domain.Entities;
 using Domain.Interfaces;
 
@@ -16,7 +17,7 @@ namespace Application.Services
             _gameRepo = gameRepository;
         }
 
-        public Game Create(string name, string description, string category, string image, int userId)
+        public GameDto Create(string name, string description, string category, string image, int userId)
         {
             var newGame = new Game
             {
@@ -26,17 +27,21 @@ namespace Application.Services
                 Image = image,
                 UserId = userId
             };
-            return _gameRepo.Create(newGame);
+            var createdGame = _gameRepo.Create(newGame);
+            return GameDto.Create(createdGame);
         }
 
-        public IEnumerable<Game> GetAll()
+        public IEnumerable<GameDto> GetAll()
         {
-            return _gameRepo.GetAll();
+            var games = _gameRepo.GetAll();
+            return GameDto.Create(games);
         }
 
-        public Game GetById(int id)
+        public GameDto GetById(int id)
         {
-            return _gameRepo.GetById(id) ?? throw new KeyNotFoundException($"Game with id {id} not found.");
+
+            var game = _gameRepo.GetById(id) ?? throw new KeyNotFoundException($"Game with id {id} not found.");
+            return GameDto.Create(game);
         }
 
         public void Delete(int id)
@@ -44,7 +49,7 @@ namespace Application.Services
             var game = _gameRepo.Delete(id) ?? throw new KeyNotFoundException($"Game with id {id} not found.");
         }
 
-        public Game Update(int id, string name, string description, string category, string image)
+        public GameDto Update(int id, string name, string description, string category, string image)
         {
             var game = new Game
             {
@@ -54,7 +59,7 @@ namespace Application.Services
                 Image = image
             };
             var updatedGame = _gameRepo.Update(id, game) ?? throw new KeyNotFoundException($"Game with id {id} not found.");
-            return updatedGame;
+            return GameDto.Create(updatedGame);
         }
 
     }

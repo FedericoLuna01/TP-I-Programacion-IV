@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Models.Guide;
-using Api.Models.Score;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
+using Application.DTOs.Guide;
+using Application.Dtos.Guide;
 
 namespace Api.Controllers
 {
@@ -40,14 +40,14 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Guide>> GetAll()
+        public ActionResult<IEnumerable<GuideDto>> GetAll()
         {
             var guides = _guideService.GetAll();
             return Ok(guides);
         }
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<Guide> GetById([FromRoute] int id)
+        public ActionResult<GuideDto> GetById([FromRoute] int id)
 
         {
             var guide = _guideService.GetById(id);
@@ -58,7 +58,7 @@ namespace Api.Controllers
         [HttpPut]
         [Route("{id}")]
         [Authorize]
-        public ActionResult<Guide> Update([FromRoute] int id, [FromBody] UpdateGuideRequest updateDto)
+        public ActionResult<GuideDto> Update([FromRoute] int id, [FromBody] UpdateGuideRequest updateDto)
         {
             var updateGuide = _guideService.Update(id, updateDto.Title, updateDto.Description, updateDto.Content, updateDto.Difficulty, updateDto.Image, updateDto.Tags);
             return updateGuide;
