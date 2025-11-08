@@ -36,7 +36,8 @@ namespace Api.Controllers
         public ActionResult<List<UserDto>> GetAll()
         {
             var users = _userService.GetAll();
-            return UserDto.Create(users);
+
+            return users.ToList();
         }
 
         [HttpDelete]
@@ -54,7 +55,7 @@ namespace Api.Controllers
         {
             var user = _userService.GetById(id);
 
-            return UserDto.Create(user);
+            return user;
         }
 
         [HttpPut]
