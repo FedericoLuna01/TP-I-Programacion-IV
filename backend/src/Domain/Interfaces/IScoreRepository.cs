@@ -4,6 +4,6 @@ namespace Domain.Interfaces
 {
     public interface IScoreRepository : IGenericRepository<Score>
     {
-        Score? GetByGuide(int guideId);
+    
     }
 }

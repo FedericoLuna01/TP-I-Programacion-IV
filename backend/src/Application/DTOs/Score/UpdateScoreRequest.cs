@@ -9,6 +9,8 @@ namespace Application.Dtos.Score
     public record UpdateScoreRequest
     (
         [Required]
+        int ScoreValue,
+        [Required]
         string Comment
     );
 }

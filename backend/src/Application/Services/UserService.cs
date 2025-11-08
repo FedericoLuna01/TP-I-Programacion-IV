@@ -55,14 +55,15 @@ namespace Application.Services
 
         public UserDto Update(int id, string avatar, string banner, UserRole role, string username)
         {
-            var updateUser = new User
-            {
-                Avatar = avatar,
-                Banner = banner,
-                Role = role,
-                Username = username
-            };
-            var updatedUser = _userRepo.Update(id, updateUser) ?? throw new UserNotFoundException();
+            var existingUser = _userRepo.GetById(id) ?? throw new UserNotFoundException();
+
+            existingUser.Avatar = avatar;
+            existingUser.Banner = banner;
+            existingUser.Role = role;
+            existingUser.Username = username;
+
+            var updatedUser = _userRepo.Update(id, existingUser) ?? throw new UserNotFoundException();
+
             return UserDto.Create(updatedUser);
         }
 

@@ -49,12 +49,13 @@ namespace Api.Controllers
         [Authorize]
         public ActionResult<ScoreDto> Update([FromRoute] int id, [FromBody] UpdateScoreRequest scoreDto)
         {
-            var score = _scoreService.Update(
+            var updateScore = _scoreService.Update(
                 id,
+                scoreDto.ScoreValue,
                 scoreDto.Comment
             );
 
-            return score;
+            return updateScore;
         }
 
         [HttpDelete]

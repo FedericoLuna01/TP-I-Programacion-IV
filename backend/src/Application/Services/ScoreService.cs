@@ -43,10 +43,11 @@ namespace Application.Services
             return ScoreDto.Create(_scoreRepo.GetById(id) ?? throw new KeyNotFoundException($"Score with id {id} not found"));
         }
 
-        public ScoreDto Update(int id, string comment)
+        public ScoreDto Update(int id,int scoreValue, string comment)
         {
             var score = new Score
             {
+                ScoreValue = scoreValue,
                 Comment = comment
             };
 
