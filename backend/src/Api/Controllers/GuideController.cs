@@ -14,7 +14,6 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/guide")]
-    [Authorize]
     public class GuideController : ControllerBase
     {
         private readonly GuideService _guideService;
@@ -25,6 +24,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create([FromBody] CreateGuideRequest guideDto)
         {
             var guide = _guideService.Create(guideDto.Title,
@@ -57,6 +57,7 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
+        [Authorize]
         public ActionResult<Guide> Update([FromRoute] int id, [FromBody] UpdateGuideRequest updateDto)
         {
             var updateGuide = _guideService.Update(id, updateDto.Title, updateDto.Description, updateDto.Content, updateDto.Difficulty, updateDto.Image, updateDto.Tags);
@@ -65,6 +66,7 @@ namespace Api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [Authorize]
         public IActionResult Delete([FromRoute] int id)
         {
             _guideService.Delete(id);

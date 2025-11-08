@@ -14,6 +14,7 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/user")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
@@ -27,12 +28,10 @@ namespace Api.Controllers
         public IActionResult Create([FromBody] CreateUserRequest userDto)
         {
             var createdUser = _userService.Create(userDto.Email, userDto.Role, userDto.Username, userDto.Password);
-
             return CreatedAtAction(nameof(GetById), new { id = createdUser.Id }, createdUser);
         }
 
         [HttpGet]
-        [Authorize]
         public ActionResult<List<UserDto>> GetAll()
         {
             var users = _userService.GetAll();
@@ -41,7 +40,6 @@ namespace Api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        [Authorize]
         public IActionResult Delete(int id)
         {
             _userService.Delete(id);

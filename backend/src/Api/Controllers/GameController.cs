@@ -9,7 +9,6 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/game")]
-    [Authorize]
     public class GameController : ControllerBase
     {
         private readonly GameService _gameService;
@@ -19,6 +18,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create([FromBody] CreateGameRequest gameDto)
         {
             var createdGame = _gameService.Create(gameDto.Name,
@@ -45,6 +45,7 @@ namespace Api.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         [Route("{id}")]
         public IActionResult Delete([FromRoute] int id)
         {
@@ -53,6 +54,7 @@ namespace Api.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         [Route("{id}")]
         public ActionResult<Game> UpdateGame([FromRoute] int id, [FromBody] UpdateGameRequest updateDto)
         {

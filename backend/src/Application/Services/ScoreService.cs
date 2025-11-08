@@ -51,7 +51,7 @@ namespace Application.Services
 
         public void Delete(int id)
         {
-            _scoreRepo.Delete(id);
+            var score = _scoreRepo.Delete(id) ?? throw new KeyNotFoundException($"Score with id {id} not found.");
         }
     }
 }

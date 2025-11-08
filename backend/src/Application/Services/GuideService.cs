@@ -36,7 +36,8 @@ namespace Application.Services
 
         public IEnumerable<Guide> GetAll()
         {
-            return _guideRepo.GetAll();
+            var guides = _guideRepo.GetAll();
+            return guides;
         }
 
         public Guide GetById(int id)

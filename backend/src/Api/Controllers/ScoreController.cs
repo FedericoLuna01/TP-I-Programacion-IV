@@ -14,7 +14,6 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/score")]
-    [Authorize]
     public class ScoreController : ControllerBase
     {
         private readonly ScoreService _scoreService;
@@ -25,6 +24,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create([FromBody] CreateScoreRequest scoreDto)
         {
             var score = _scoreService.Create(
@@ -48,6 +48,7 @@ namespace Api.Controllers
 
         [HttpPut]
         [Route("{id}")]
+        [Authorize]
         public ActionResult<Score> Update([FromRoute] int id, [FromBody] UpdateScoreRequest scoreDto)
         {
             var score = _scoreService.Update(
@@ -60,6 +61,7 @@ namespace Api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [Authorize]
         public IActionResult Delete([FromRoute] int id)
         {
             _scoreService.Delete(id);
