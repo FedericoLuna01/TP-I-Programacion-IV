@@ -133,12 +133,8 @@ using (var serviceScope = app.Services.CreateScope())
 }
 #endregion
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors("AllowFrontend");
 
